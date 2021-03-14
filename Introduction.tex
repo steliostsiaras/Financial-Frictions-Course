@@ -1,0 +1,170 @@
+\documentclass[xcolor=dvipsnames,handout]{beamer}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+\DeclareMathOperator{\E}{\mathbb{E}}
+\usepackage{tikz}
+\usepackage{comment}
+\usepackage{pgfplots}
+\usepackage{xcolor}
+\usetikzlibrary{positioning}
+\usetikzlibrary{fit}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes}
+\usetikzlibrary{mindmap}
+\usetikzlibrary{patterns}
+\usepackage{pifont}
+\newcommand{\xmark}{\ding{55}}%
+\newcommand{\cmark}{\ding{51}}%
+\usepackage[skins,theorems]{tcolorbox}
+\tcbset{highlight math style={enhanced,
+  colframe=red,colback=white,arc=0pt,boxrule=1pt}}
+
+\usetikzlibrary{decorations.text}
+\pgfplotsset{compat=1.7}
+\mode<presentation>
+%\usetheme{}
+\usecolortheme[named=Black]{structure}
+
+
+\usefonttheme{serif}     % Font theme: serif
+\usepackage{helvet}     % Font family: Concrete Math
+\usepackage{tikz}
+\setbeamersize{text margin left=04mm,text margin right=04mm} 
+
+\colorlet{titleleft}{Sepia!200!black}
+\colorlet{titleright}{white}
+
+\setbeamercolor*{frametitle}{fg=black}  %Set frametitle color
+
+\makeatletter
+\pgfdeclarehorizontalshading[titleleft,titleright]{beamer@frametitleshade}{\paperheight}{%
+  color(0pt)=(titleleft);
+  color(\paperwidth)=(titleright)}
+
+\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
+\setbeamertemplate{enumerate items}{(\arabic{enumi})}
+\setbeamertemplate{itemize items}[circle]
+\setbeamercovered{transparent=15}
+\setbeamercovered{invisible}
+\setbeamertemplate{sections/subsections in toc}[sections numbered]
+
+
+
+\title[\today]{\textbf{Debt Covenants, Investment, and Monetary Policy by Ozgen Ozturk}}
+\setbeamercolor{author}{fg=black} 
+\author{Discussion by Stelios Tsiaras}
+\institute{European University Institute}
+%\date{%16 December 2020}
+%\color{blue}{Latvijas Banka}}
+
+
+
+%-------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------
+%============================B E G I N  D O C U M E N T=====================================
+%-------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------------------
+
+\begin{document}
+
+
+
+
+\begin{frame}[noframenumbering]
+\titlepage 
+\end{frame}
+
+\begin{frame}[t]\frametitle {\textbf{Summary}} \label{conclusion}
+\begin{itemize}
+    \item Very interesting paper!
+    \item {\color{blue}{Main question}}: How MP affects firms conditional on their type of debt agreement (debt covenant)? \pause
+    \item Develops a model where firms choose their debt covenant 
+    \item Mimics the US data fact according to which firms mostly use a cash flow covenant relative to an asset based
+    \item Current version results:
+    \begin{itemize}
+        \item {\color{blue}{Result 1}}: Relationship between productivity, capital and the choice of the debt covenant
+        \item {\color{blue}{Result 2}}: An average firm after its $15^{th}$ period of existence pays off its debt stock and uses exclusively internal funding
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]\frametitle {\textbf{The Model}} \label{conclusion}
+\begin{itemize}
+\item Firms choose their debt covenant given the default terms of each type of agreement
+    \item {\color{blue}{Asset based}}: If the firm defaults the lender gains a fraction of its assets
+    \item {\color{blue}{Cash-flow based}}: Lender gains a multiple $\phi$ of the firm's cash flow (essentially firms output)
+    \item Different levels of productivity, capital and borrowing result to different choices of the debt covenant
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]\frametitle {\textbf{Main Comments}} \label{conclusion}
+
+The two contracts essentially differ in their default terms
+\begin{enumerate}
+\item Is loss of the management rights the same with a loss of a cash-flow multiple?
+\item Super {\color{blue}{important parameter}}: the multiple {\color{blue}{$\phi$}} of cash-flow in case of default. How is it (will be)  calibrated?
+\item Having {\color{blue}{endogenous borrowing constraints}} is quite typical in the literature. What is determined endogenously here and is emphasized since the introduction?
+\item There is no relationship between the {\color{blue}{debt covenant}} and the {\color{blue}{interest rate}}. Banks charge always the risk-free rate. 
+    %Relationship with firm's capital or cash-flow and debt covenants?  
+\begin{itemize}
+    \item In this way any -direct- MP interest rate effect is the same for both debt types and not different according to their balance sheets. Both pay $r^B$
+    \item Is this to isolate the debt covenant choice effect?
+    \item Of course indirect effects do change due to the debt agreements
+    \item In the future you could add a friction between banks and firms
+\end{itemize}
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}[t]\frametitle {\textbf{Main Comments II}} \label{conclusion}
+\begin{enumerate} 
+\item Extension: Borrowing parameters changing {\color{blue}{inversely}} with the firms' capital holdings or cash flow?
+\item Is it common to assume that cash-flow equals the output of a firm?
+\item Cash flow covenant collateral includes also {\color{blue}{capital}}, the asset in the asset based covenant
+\begin{itemize}
+    \item What's the {\color{blue}{relationship}} between the two schemes?
+    \item Comparative exercise between fraction of capital given in the asset based vs. cash-flow collateral. Lots of it should depend on the parameters
+\end{itemize}
+\item Do the firms choose the covenant according to the higher ability to {\color{blue}{borrow}} or the lower penalty in case of {\color{blue}{default}}?
+%\item Result: high productivity firms prefer cash-flow based due to their ability to generate cash. 
+%\begin{itemize}
+%    \item Isn't that they also have more capital now so they want to avoid an asset based agreement?
+%\end{itemize}
+\item Are there empirical studies that firms pay back their debt around their $15^{th}$ period?
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[t]\frametitle {\textbf{Minor Comments}} \label{conclusion}
+\begin{itemize}
+\item Bank's problem is a bit confusing
+\begin{itemize}
+    \item Why households do not hold deposits $D$ directly and have this risk-free bond $\alpha$ that in equilibrium $D=\alpha$? 
+    (I had to look at the Appendix for that!)
+\end{itemize}
+\item Why the households hold firm shares? Doesn't all the lending comes from the banks?
+\item Definition of debt covenants and covenant types does not belong in the Micro-level evidence. 
+\begin{itemize}
+    \item Put this in the introduction, or a small chapter after the introduction. It is really helpful!
+\end{itemize}
+\item Calibration is a crucial part of the paper. Even though it might not be sophisticated at the moment it should have been included
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}[t]\frametitle {\textbf{Overall}} \label{conclusion}
+\begin{itemize}
+\item It's a very nice paper and the {\color{blue}{contribution}} in the literature is clear
+%\item All the comments are things that just to make it better (in my view of course)!
+\item Also the empirical part is promising but still incomplete
+\item Any data of how this is in Europe?
+
+\end{itemize}
+\end{frame}
+
+
+
+\end{document}
