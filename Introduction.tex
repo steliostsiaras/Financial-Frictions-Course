@@ -1,4 +1,139 @@
+
 \documentclass[xcolor=dvipsnames,handout]{beamer}
+
+
+\usepackage[english]{babel}
+\usepackage{csquotes}% Recommended
+\usepackage[backend=biber,
+  style=authoryear,
+   ]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+
+\addbibresource{\jobname.bib}
+
+\hypersetup{colorlinks,
+citecolor=blue,
+linkcolor=blue,
+menucolor=blue,
+filecolor=pink,   
+anchorcolor=yellow
+}
+
+\usepackage{filecontents}
+\begin{filecontents*}{\jobname.bib}
+@article{kydland1982time,
+  title={Time to build and aggregate fluctuations},
+  author={Kydland, Finn E and Prescott, Edward C},
+  journal={Econometrica},
+  pages={1345--1370},
+  year={1982},
+  publisher={JSTOR}
+}
+
+@incollection{gertler2010financial,
+  title={Financial intermediation and credit policy in business cycle analysis},
+  author={Gertler, Mark and Kiyotaki, Nobuhiro},
+  booktitle={Handbook of monetary economics},
+  volume={3},
+  pages={547--599},
+  year={2010},
+  publisher={Elsevier}
+}
+
+@article{gertler2011model,
+  title={A model of unconventional monetary policy},
+  author={Gertler, Mark and Karadi, Peter},
+  journal={Journal of monetary Economics},
+  volume={58},
+  number={1},
+  pages={17--34},
+  year={2011},
+  publisher={Elsevier}
+}
+
+@article{long1983real,
+  title={Real business cycles},
+  author={Long Jr, John B and Plosser, Charles I},
+  journal={Journal of Political Economy},
+  volume={91},
+  number={1},
+  pages={39--69},
+  year={1983},
+  publisher={The University of Chicago Press}
+}
+
+@article{zhang2019household,
+  title={Household debt, financial intermediation, and monetary policy},
+  author={Zhang, Yahong},
+  journal={Journal of Macroeconomics},
+  volume={59},
+  pages={230--257},
+  year={2019},
+  publisher={Elsevier}
+}
+
+@article{lozej2018countercyclical,
+  title={Countercyclical capital regulation in a small open economy DSGE model},
+  author={Lozej, Matija and Onorante, Luca and Rannenberg, Ansgar},
+  year={2018},
+  journal={ECB Working Paper}
+}
+
+@article{liu2021credit,
+  title={Credit expansion, bank liberalization, and structural change in bank asset accounts},
+  author={Liu, Keqing and Fan, Qingliang},
+  journal={Journal of Economic Dynamics and Control},
+  volume={124},
+  pages={104066},
+  year={2021},
+  publisher={Elsevier}
+}
+
+@book{gali2015monetary,
+  title={Monetary policy, inflation, and the business cycle: an introduction to the new Keynesian framework and its applications},
+  author={Gali, Jordi},
+  year={2015},
+  publisher={Princeton University Press}
+}
+
+@book{woodford2011interest,
+  title={Interest and prices: Foundations of a theory of monetary policy},
+  author={Woodford, Michael},
+  year={2011},
+  publisher={Princeton University Press}
+}
+
+@book{miao2020economic,
+  title={Economic dynamics in discrete time},
+  author={Miao, Jianjun},
+  year={2020},
+  publisher={MIT press}
+}
+
+@article{smets2007shocks,
+  title={Shocks and frictions in US business cycles: A Bayesian DSGE approach},
+  author={Smets, Frank and Wouters, Rafael},
+  journal={American economic review},
+  volume={97},
+  number={3},
+  pages={586--606},
+  year={2007}
+}
+
+\end{filecontents*}
+
+\DeclareCiteCommand{\textcite}
+ {\boolfalse{cbx:parens}}
+  {\usebibmacro{citeindex}%
+    \printtext[bibhyperref]{\printnames{labelname}%
+      \printtext{ (\printfield{year}\printtext{)}}}}
+ {\ifbool{cbx:parens}
+  {\bibcloseparen\global\boolfalse{cbx:parens}}
+  {}%
+ \multicitedelim}
+{\usebibmacro{textcite:postnote}}
+
+
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{footline}[frame number]
 \DeclareMathOperator{\E}{\mathbb{E}}
@@ -14,6 +149,8 @@
 \usetikzlibrary{mindmap}
 \usetikzlibrary{patterns}
 \usepackage{pifont}
+%\usepackage{natbib} 
+%\usepackage{bibentry}
 \newcommand{\xmark}{\ding{55}}%
 \newcommand{\cmark}{\ding{51}}%
 \usepackage[skins,theorems]{tcolorbox}
@@ -51,6 +188,7 @@
 
 
 
+
 \title[\today]{\textbf{Debt Covenants, Investment, and Monetary Policy by Ozgen Ozturk}}
 \setbeamercolor{author}{fg=black} 
 \author{Discussion by Stelios Tsiaras}
@@ -60,13 +198,7 @@
 
 
 
-%-------------------------------------------------------------------------------------------
-%-------------------------------------------------------------------------------------------
-%-------------------------------------------------------------------------------------------
-%============================B E G I N  D O C U M E N T=====================================
-%-------------------------------------------------------------------------------------------
-%-------------------------------------------------------------------------------------------
-%-------------------------------------------------------------------------------------------
+
 
 \begin{document}
 
@@ -77,94 +209,68 @@
 \titlepage 
 \end{frame}
 
-\begin{frame}[t]\frametitle {\textbf{Summary}} \label{conclusion}
+\begin{frame}[c]\frametitle {\textbf{Summary}} \label{conclusion}
 \begin{itemize}
-    \item Very interesting paper!
-    \item {\color{blue}{Main question}}: How MP affects firms conditional on their type of debt agreement (debt covenant)? \pause
-    \item Develops a model where firms choose their debt covenant 
-    \item Mimics the US data fact according to which firms mostly use a cash flow covenant relative to an asset based
-    \item Current version results:
-    \begin{itemize}
-        \item {\color{blue}{Result 1}}: Relationship between productivity, capital and the choice of the debt covenant
-        \item {\color{blue}{Result 2}}: An average firm after its $15^{th}$ period of existence pays off its debt stock and uses exclusively internal funding
-    \end{itemize}
+    \setlength\itemsep{2em}
+    \item Real Businesses Cycles 
+    \item New Keynesian models \smash{\raisebox{.5\dimexpr\baselineskip+\itemsep+\parskip}{$\left.\rule{0pt}{.5\dimexpr2\baselineskip+3\itemsep+5\parskip}\right\}\text{{\color{blue}{DSGE}} models}$}}
+    \item \underline{{\color{blue}{D}}ynamic {\color{blue}{S}}tochastic {\color{blue}{G}}eneral {\color{blue}{E}}quilibrium}
+    \item RBC \& NK (plain vanilla) models assume perfect financial markets 
+
+$\rightarrow$ DSGE models with {\color{blue}{financial frictions}} go a step further
 \end{itemize}
 \end{frame}
 
-\begin{frame}[t]\frametitle {\textbf{The Model}} \label{conclusion}
+\begin{frame}[c]\frametitle {\textbf{Summary}} \label{conclusion}
 \begin{itemize}
-\item Firms choose their debt covenant given the default terms of each type of agreement
-    \item {\color{blue}{Asset based}}: If the firm defaults the lender gains a fraction of its assets
-    \item {\color{blue}{Cash-flow based}}: Lender gains a multiple $\phi$ of the firm's cash flow (essentially firms output)
-    \item Different levels of productivity, capital and borrowing result to different choices of the debt covenant
-
-\end{itemize}
-\end{frame}
-
-\begin{frame}[t]\frametitle {\textbf{Main Comments}} \label{conclusion}
-
-The two contracts essentially differ in their default terms
+    \setlength\itemsep{2em}
+\item DSGE models are micro-founded 
+\item They make assumptions regarding: 
 \begin{enumerate}
-\item Is loss of the management rights the same with a loss of a cash-flow multiple?
-\item Super {\color{blue}{important parameter}}: the multiple {\color{blue}{$\phi$}} of cash-flow in case of default. How is it (will be)  calibrated?
-\item Having {\color{blue}{endogenous borrowing constraints}} is quite typical in the literature. What is determined endogenously here and is emphasized since the introduction?
-\item There is no relationship between the {\color{blue}{debt covenant}} and the {\color{blue}{interest rate}}. Banks charge always the risk-free rate. 
-    %Relationship with firm's capital or cash-flow and debt covenants?  
-\begin{itemize}
-    \item In this way any -direct- MP interest rate effect is the same for both debt types and not different according to their balance sheets. Both pay $r^B$
-    \item Is this to isolate the debt covenant choice effect?
-    \item Of course indirect effects do change due to the debt agreements
-    \item In the future you could add a friction between banks and firms
-\end{itemize}
+    \item Preferences (log utility, CRRA, GHH...)
+    \item Technology (Cobb Douglas PF, CES...)
+    \item Market structure (Complete-incomplete markets, heterogeneity, FF...)
 \end{enumerate}
-\end{frame}
-
-
-\begin{frame}[t]\frametitle {\textbf{Main Comments II}} \label{conclusion}
-\begin{enumerate} 
-\item Extension: Borrowing parameters changing {\color{blue}{inversely}} with the firms' capital holdings or cash flow?
-\item Is it common to assume that cash-flow equals the output of a firm?
-\item Cash flow covenant collateral includes also {\color{blue}{capital}}, the asset in the asset based covenant
-\begin{itemize}
-    \item What's the {\color{blue}{relationship}} between the two schemes?
-    \item Comparative exercise between fraction of capital given in the asset based vs. cash-flow collateral. Lots of it should depend on the parameters
-\end{itemize}
-\item Do the firms choose the covenant according to the higher ability to {\color{blue}{borrow}} or the lower penalty in case of {\color{blue}{default}}?
-%\item Result: high productivity firms prefer cash-flow based due to their ability to generate cash. 
-%\begin{itemize}
-%    \item Isn't that they also have more capital now so they want to avoid an asset based agreement?
-%\end{itemize}
-\item Are there empirical studies that firms pay back their debt around their $15^{th}$ period?
-\end{enumerate}
-\end{frame}
-
-\begin{frame}[t]\frametitle {\textbf{Minor Comments}} \label{conclusion}
-\begin{itemize}
-\item Bank's problem is a bit confusing
-\begin{itemize}
-    \item Why households do not hold deposits $D$ directly and have this risk-free bond $\alpha$ that in equilibrium $D=\alpha$? 
-    (I had to look at the Appendix for that!)
-\end{itemize}
-\item Why the households hold firm shares? Doesn't all the lending comes from the banks?
-\item Definition of debt covenants and covenant types does not belong in the Micro-level evidence. 
-\begin{itemize}
-    \item Put this in the introduction, or a small chapter after the introduction. It is really helpful!
-\end{itemize}
-\item Calibration is a crucial part of the paper. Even though it might not be sophisticated at the moment it should have been included
 
 \end{itemize}
 \end{frame}
 
-\begin{frame}[t]\frametitle {\textbf{Overall}} \label{conclusion}
-\begin{itemize}
-\item It's a very nice paper and the {\color{blue}{contribution}} in the literature is clear
-%\item All the comments are things that just to make it better (in my view of course)!
-\item Also the empirical part is promising but still incomplete
-\item Any data of how this is in Europe?
 
+\begin{frame}[c]\frametitle {\textbf{Background Literature}} \label{conclusion}
+\begin{itemize}
+    \setlength\itemsep{1.5em}
+\item {\color{black}{Seminal RBC models}}:  \textcite{kydland1982time} \& \textcite{long1983real}
+\item {\color{black}{New Keynesian bible(s)}}:
+\begin{itemize}
+     \item   \textcite{gali2015monetary} \textit{Monetary Policy, Inflation, and the Business Cycle: An Introduction to the New Keynesian
+framework and Its Applications, Second Edition}. Princeton University Press
+\item \textcite{woodford2011interest}
+\textit{Interest and Prices. Foundations of a Theory of Monetary Policy}. Princeton University Press
+\end{itemize} 
+\item General DSGE 
+\begin{itemize}
+    \item \textcite{miao2020economic} \textit{Economic Dynamics in Discrete Time}. MIT press
+\end{itemize}
+\item State of the art multi-shock and frictions NK-DSGE model: \textcite{smets2007shocks}
 \end{itemize}
 \end{frame}
 
+\begin{frame}[c]\frametitle {\textbf{RBC to NK to FF DSGE}} \label{conclusion}
+\begin{itemize}
+   \item RBC: Neoclassical model where agents optimize with rational expectations
+   \item New Keynesian environment adds price and/ or wage stickiness
+   \item Financial frictions eliminate complete markets
+   \begin{itemize}
+       \item Sometimes these frictions are very specific, derived from microfounded behavior, while sometimes they are more ad-hoc (reduced form)
+   \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]\frametitle {\textbf{References}}
+%\bibliographystyle{ecta}
+\printbibliography
+\end{frame}
 
 
 \end{document}
