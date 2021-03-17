@@ -1,137 +1,32 @@
 
-\documentclass[xcolor=dvipsnames,handout]{beamer}
+\documentclass[xcolor=dvipsnames,handout,aspectratio=169]{beamer}
 
 
-\usepackage[english]{babel}
-\usepackage{csquotes}% Recommended
-\usepackage[backend=biber,
-  style=authoryear,
-   ]{biblatex}
-\DeclareLanguageMapping{american}{american-apa}
+\usepackage{natbib}% Recommended
+\usepackage{csquotes}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsxtra}
+\usepackage{amsthm}
+\usepackage{scalefnt}
+\usepackage{natbib}
 
-\addbibresource{\jobname.bib}
-
-\hypersetup{colorlinks,
-citecolor=blue,
-linkcolor=blue,
-menucolor=blue,
-filecolor=pink,   
-anchorcolor=yellow
+\hypersetup{
+    colorlinks,
+    citecolor=green,
+    linkcolor=red,
+    backref=true
 }
 
-\usepackage{filecontents}
-\begin{filecontents*}{\jobname.bib}
-@article{kydland1982time,
-  title={Time to build and aggregate fluctuations},
-  author={Kydland, Finn E and Prescott, Edward C},
-  journal={Econometrica},
-  pages={1345--1370},
-  year={1982},
-  publisher={JSTOR}
-}
+\let\oldbibitem=\bibitem
+\renewcommand{\bibitem}[2][]{\label{#2}\oldbibitem[#1]{#2}}
+\let\oldcite=\cite
+\renewcommand\cite[1]{\hypersetup{linkcolor=blue} \hyperlink{#1}{\oldcite{#1}}}
+\let\oldcitep=\citep
+\renewcommand\citep[1]{\hypersetup{linkcolor=blue}\hyperlink{#1}{\oldcitep{#1}}}
+\let\oldciteauthor=\citeauthor
+\renewcommand\citeauthor[1]{\hypersetup{linkcolor=blue}\hyperlink{#1}{\oldciteauthor{#1}}} 
 
-@incollection{gertler2010financial,
-  title={Financial intermediation and credit policy in business cycle analysis},
-  author={Gertler, Mark and Kiyotaki, Nobuhiro},
-  booktitle={Handbook of monetary economics},
-  volume={3},
-  pages={547--599},
-  year={2010},
-  publisher={Elsevier}
-}
-
-@article{gertler2011model,
-  title={A model of unconventional monetary policy},
-  author={Gertler, Mark and Karadi, Peter},
-  journal={Journal of monetary Economics},
-  volume={58},
-  number={1},
-  pages={17--34},
-  year={2011},
-  publisher={Elsevier}
-}
-
-@article{long1983real,
-  title={Real business cycles},
-  author={Long Jr, John B and Plosser, Charles I},
-  journal={Journal of Political Economy},
-  volume={91},
-  number={1},
-  pages={39--69},
-  year={1983},
-  publisher={The University of Chicago Press}
-}
-
-@article{zhang2019household,
-  title={Household debt, financial intermediation, and monetary policy},
-  author={Zhang, Yahong},
-  journal={Journal of Macroeconomics},
-  volume={59},
-  pages={230--257},
-  year={2019},
-  publisher={Elsevier}
-}
-
-@article{lozej2018countercyclical,
-  title={Countercyclical capital regulation in a small open economy DSGE model},
-  author={Lozej, Matija and Onorante, Luca and Rannenberg, Ansgar},
-  year={2018},
-  journal={ECB Working Paper}
-}
-
-@article{liu2021credit,
-  title={Credit expansion, bank liberalization, and structural change in bank asset accounts},
-  author={Liu, Keqing and Fan, Qingliang},
-  journal={Journal of Economic Dynamics and Control},
-  volume={124},
-  pages={104066},
-  year={2021},
-  publisher={Elsevier}
-}
-
-@book{gali2015monetary,
-  title={Monetary policy, inflation, and the business cycle: an introduction to the new Keynesian framework and its applications},
-  author={Gali, Jordi},
-  year={2015},
-  publisher={Princeton University Press}
-}
-
-@book{woodford2011interest,
-  title={Interest and prices: Foundations of a theory of monetary policy},
-  author={Woodford, Michael},
-  year={2011},
-  publisher={Princeton University Press}
-}
-
-@book{miao2020economic,
-  title={Economic dynamics in discrete time},
-  author={Miao, Jianjun},
-  year={2020},
-  publisher={MIT press}
-}
-
-@article{smets2007shocks,
-  title={Shocks and frictions in US business cycles: A Bayesian DSGE approach},
-  author={Smets, Frank and Wouters, Rafael},
-  journal={American economic review},
-  volume={97},
-  number={3},
-  pages={586--606},
-  year={2007}
-}
-
-\end{filecontents*}
-
-\DeclareCiteCommand{\textcite}
- {\boolfalse{cbx:parens}}
-  {\usebibmacro{citeindex}%
-    \printtext[bibhyperref]{\printnames{labelname}%
-      \printtext{ (\printfield{year}\printtext{)}}}}
- {\ifbool{cbx:parens}
-  {\bibcloseparen\global\boolfalse{cbx:parens}}
-  {}%
- \multicitedelim}
-{\usebibmacro{textcite:postnote}}
 
 
 \setbeamertemplate{navigation symbols}{}
@@ -166,8 +61,7 @@ anchorcolor=yellow
 
 \usefonttheme{serif}     % Font theme: serif
 \usepackage{helvet}     % Font family: Concrete Math
-\usepackage{tikz}
-\setbeamersize{text margin left=04mm,text margin right=04mm} 
+\setbeamersize{text margin left=09mm,text margin right=09mm} 
 
 \colorlet{titleleft}{Sepia!200!black}
 \colorlet{titleright}{white}
@@ -189,20 +83,14 @@ anchorcolor=yellow
 
 
 
-\title[\today]{\textbf{Debt Covenants, Investment, and Monetary Policy by Ozgen Ozturk}}
+\title[\today]{\textbf{A Course on DSGE Models with Financial Frictions \\ Introduction}}
 \setbeamercolor{author}{fg=black} 
-\author{Discussion by Stelios Tsiaras}
+\author{Stelios Tsiaras}
 \institute{European University Institute}
 %\date{%16 December 2020}
 %\color{blue}{Latvijas Banka}}
 
-
-
-
-
 \begin{document}
-
-
 
 
 \begin{frame}[noframenumbering]
@@ -213,11 +101,11 @@ anchorcolor=yellow
 \begin{itemize}
     \setlength\itemsep{2em}
     \item Real Businesses Cycles 
-    \item New Keynesian models \smash{\raisebox{.5\dimexpr\baselineskip+\itemsep+\parskip}{$\left.\rule{0pt}{.5\dimexpr2\baselineskip+3\itemsep+5\parskip}\right\}\text{{\color{blue}{DSGE}} models}$}}
-    \item \underline{{\color{blue}{D}}ynamic {\color{blue}{S}}tochastic {\color{blue}{G}}eneral {\color{blue}{E}}quilibrium}
+    \item New Keynesian models \smash{\raisebox{.5\dimexpr\baselineskip+\itemsep+\parskip}{$\left.\rule{0pt}{.5\dimexpr2\baselineskip+3\itemsep+5\parskip}\right\}\text{{\color{Magenta}{DSGE}} models}$}}
+    \item \underline{{\color{Magenta}{D}}ynamic {\color{Magenta}{S}}tochastic {\color{Magenta}{G}}eneral {\color{Magenta}{E}}quilibrium}
     \item RBC \& NK (plain vanilla) models assume perfect financial markets 
 
-$\rightarrow$ DSGE models with {\color{blue}{financial frictions}} go a step further
+$\rightarrow$ DSGE models with {\color{Magenta}{financial frictions}} go a step further
 \end{itemize}
 \end{frame}
 
@@ -239,19 +127,19 @@ $\rightarrow$ DSGE models with {\color{blue}{financial frictions}} go a step fur
 \begin{frame}[c]\frametitle {\textbf{Background Literature}} \label{conclusion}
 \begin{itemize}
     \setlength\itemsep{1.5em}
-\item {\color{black}{Seminal RBC models}}:  \textcite{kydland1982time} \& \textcite{long1983real}
-\item {\color{black}{New Keynesian bible(s)}}:
+\item {\color{black}{Seminal RBC models}}:  \cite{kydland1982time} \& \cite{long1983real}
+\item {\color{black}{New Keynesian main textbooks}}:
 \begin{itemize}
-     \item   \textcite{gali2015monetary} \textit{Monetary Policy, Inflation, and the Business Cycle: An Introduction to the New Keynesian
+     \item   \cite{gali2015monetary} \textit{Monetary Policy, Inflation, and the Business Cycle: An Introduction to the New Keynesian
 framework and Its Applications, Second Edition}. Princeton University Press
-\item \textcite{woodford2011interest}
+\item \cite{woodford2011interest}
 \textit{Interest and Prices. Foundations of a Theory of Monetary Policy}. Princeton University Press
 \end{itemize} 
-\item General DSGE 
+\item General DSGE
 \begin{itemize}
-    \item \textcite{miao2020economic} \textit{Economic Dynamics in Discrete Time}. MIT press
+    \item \cite{miao2020economic} \textit{Economic Dynamics in Discrete Time}. MIT press
 \end{itemize}
-\item State of the art multi-shock and frictions NK-DSGE model: \textcite{smets2007shocks}
+\item State of the art multi-shock and frictions NK-DSGE model: \cite{smets2007shocks} 
 \end{itemize}
 \end{frame}
 
@@ -261,16 +149,66 @@ framework and Its Applications, Second Edition}. Princeton University Press
    \item New Keynesian environment adds price and/ or wage stickiness
    \item Financial frictions eliminate complete markets
    \begin{itemize}
-       \item Sometimes these frictions are very specific, derived from microfounded behavior, while sometimes they are more ad-hoc (reduced form)
+       \item Sometimes these frictions are very specific, derived from micro-founded behaviour, while sometimes they are more ad-hoc (reduced form)
    \end{itemize}
 \end{itemize}
 \end{frame}
 
-
-\begin{frame}[allowframebreaks]\frametitle {\textbf{References}}
-%\bibliographystyle{ecta}
-\printbibliography
+\begin{frame}[c]\frametitle {\textbf{Models' Solution}} \label{conclusion}
+\begin{itemize}
+        \setlength\itemsep{1.5em}
+   \item What {\color{Magenta}{characterizes}} the solution of a DSGE model?
+   \begin{itemize}
+       \item The {\color{Magenta}{optimality conditions}} obtained through the various maximizations
+       \item {\color{Magenta}{Constraints}}
+       \item {\color{Magenta}{Shock Processes}}
+   \end{itemize}
+   \item The steady state is obtained by transforming all equations from dynamic to static
+\end{itemize}
 \end{frame}
 
+\begin{frame}[c]\frametitle {\textbf{Models' Solution}} \label{conclusion}
+\begin{itemize}
+        \setlength\itemsep{1.5em}
+   \item What {\color{Magenta}{is}} the solution of a DSGE model?
+   \begin{itemize}
+       \item A set of {\color{Magenta}{policy functions}}
+   \end{itemize}
+   \item A simple RBC model example
+\begin{itemize}
+    \item $C_t = g_c(K_{t},Z_t)$ 
+    \item $K_t = g_k(K_{t-1},Z_t)$
+\end{itemize}
+\item Finding the policy function can be a very difficult problem: there is rarely an analytical solution and we therefore use numerical techniques
+\item The general idea is to approximate the policy function with a polynomial $\hat{g_c}(K_{t},Z_t) = g_c(K_{t},Z_t)$:
+\begin{itemize}
+    \item  $\hat{g_c}(K_{t},Z_t) = \alpha_c + \alpha_{c,k} K_t+ \alpha_{c,z} Z_t$
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[c]\frametitle {\textbf{Solution Methods}} \label{conclusion}
+\begin{itemize}
+\item A large number of solution methods have been proposed to solve DSGE models
+\begin{itemize}
+    \item See \cite{fernandez2016solution} for an almost complete characterization
+\end{itemize}
+\item {\color{Magenta}{Perturbation}} algorithms build Taylor series approximations to the solution of a DSGE model around its deterministic steady state 
+\begin{itemize}
+    \item This is what {\color{blue}{Dynare}} does
+    \item We will focus on this
+\end{itemize}
+\item {\color{Magenta}{Projection}} methods handle DSGE models by building a function indexed by some coefficients that approximately solves our set of functions
+\begin{itemize}
+    \item The coefficients are selected to minimize a residual function that evaluates how far away the solution is from generating a zero 
+    \item Example: Parametrized Expectations Algorithm by: \cite{den1990solving}
+\end{itemize}
+\item Value function iterations 
+\end{itemize}
+\end{frame}
+
+
+\bibliographystyle{natbib}
+\bibliography{course_bibl.bib} 
 
 \end{document}
