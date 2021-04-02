@@ -11,3 +11,5 @@ In a nutshell:
 :round_pushpin: The use of DSGE models for the design of monetary policy and financial regulation
 
 :round_pushpin: Extends modelling framework to household heterogeneity and studies the impact of monetary policy
+
+## Day 1: DSGE model overerview, the RBC model & Dynare introduction
