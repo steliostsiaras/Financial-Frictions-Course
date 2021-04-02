@@ -13,3 +13,17 @@ In a nutshell:
 :round_pushpin: Extends modelling framework to household heterogeneity and studies the impact of monetary policy
 
 ## Day 1: DSGE model overerview, the RBC model & Dynare introduction
+
+During the first lecture we will go thorugh a short introduction on DSGE models and their various solution techniques. 
+Then we will set up the very simple RBC model and learn how to use Dynare to solve it (get the policy functions).
+This is of hight importance as we will go through much more complicated models in the next lectures
+
+### Material
+
+- DSGE model introduction [slides](Introduction)
+- RBC model set up and Dynare introduction [slides](Dynare)
+- [Codes](Dynare) to solve the RBC model in Dynare 
+
+##### :computer: Prerequisites 
+- The model file runs with Matlab and Dynare 4.6.x
+- The mod file the SS file need to be at the same folder
