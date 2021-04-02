@@ -3,6 +3,7 @@
 This course is written for the EUI Econ PhD students as an advancened half-credit course. 
 
 In a nutshell:
+
 :round_pushpin: Gives an introduction to DSGE models and their solution with the Dynare package
 
 :round_pushpin: Studies the incorporation of financial frictions in DSGE models 
