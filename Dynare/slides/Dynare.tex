@@ -382,6 +382,28 @@ Super useful reading: \cite{Adjemianetal2011}
  \end{itemize}
 \end{frame}
 
+\begin{frame}[t]\frametitle{\textbf{Exercise - Introducing Investment Adjustment Costs}}
+  \begin{itemize}
+  \setlength\itemsep{1em}
+  \item Same problem as above BUT now we have cost $\Phi(\Xi_t)$ for any investment adjustment 
+\begin{eqnarray}  \nonumber 
+K_{t}&=&(1-\delta) K_{t-1}+(1-\Phi(\Xi_t))I_t\,\\ \nonumber 
+\Xi_t&\equiv&\frac{I_t}{I_{t-1}}\,; \,\,\, S',\, S'' \ge
+0\,;\,\,\Phi(1)=\Phi'(1)=0 \label{Kaccum1}
+ \end{eqnarray}
+\item $I_t$ units of output converts to $(1-\Phi(\Xi_t))I_t$ of new capital sold at a real price $Q_t$ 
+\item We have two constraints and two Lagrange multipliers: $\lambda_t$ \& $\mu_t$. Express $Q_t$ as $\mu_t/\lambda_t$: the marginal value of capital measured in terms of consumption goods (this is Tobin's $Q$)
+ \end{itemize}
+\end{frame}
+
+\begin{frame}[t]\frametitle{\textbf{Exercise - Introducing Investment Adjustment Costs}}
+  \begin{itemize}
+\item If  $\Phi(\Xi_t)=\phi_X (\Xi_t-1)^2$ find the new equilibrium and solve the model in Dynare
+\item Do it first with a $\phi_X = 2$
+\item Extra: Construct a 5 point grid for $\phi_X$ and show the different impulse responses for every different value of $\phi_X$ after a positive TFP shock
+ \end{itemize}
+\end{frame}
+
 
 
 
