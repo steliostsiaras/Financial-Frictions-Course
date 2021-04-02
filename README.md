@@ -21,8 +21,8 @@ This is of hight importance as we will go through much more complicated models i
 ### Material
 
 - DSGE model introduction [slides](Introduction)
-- RBC model set up and Dynare introduction [slides](Dynare)
-- [Codes](Dynare) to solve the RBC model in Dynare 
+- RBC model set up and Dynare introduction [slides](Dynare/slides)
+- [Codes](Dynare/codes) to solve the RBC model in Dynare 
 
 ##### :computer: Prerequisites 
 - The model file runs with Matlab and Dynare 4.6.x
