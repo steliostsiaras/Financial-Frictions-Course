@@ -20,7 +20,7 @@ This is of hight importance as we will go through much more complicated models i
 
 ### Material
 
-- DSGE model introduction [slides](Introduction.pdf)
+- DSGE model introduction [slides](Introduction/Introduction.pdf)
 - RBC model set up and Dynare introduction [slides](Dynare/slides/Dynare.pdf)
 - [Codes](Dynare/codes) to solve the RBC model in Dynare 
 
