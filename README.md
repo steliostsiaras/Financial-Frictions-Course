@@ -26,6 +26,10 @@ This is of hight importance as we will go through much more complicated models i
 
 #### Take home exercise  
 
+- Extend the simple RBC model to include investment adjustment costs as specified in the end of [slides](Dynare/slides/Dynare.pdf)
+- First solve the model by pen and paper and add the new parts in Dynare to find the policy rules
+- Construct a vector [0:4] with step=1 grid for the adjustment cost parameter $\phi_X$ and show the different IRFs for output, consumption, investment and labour hours for every level of the parameter
+
 ##### :computer: Prerequisites 
 - The model file runs with Matlab and Dynare 4.6.x
 - The mod file the SS file need to be at the same folder
