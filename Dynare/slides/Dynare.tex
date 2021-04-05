@@ -403,8 +403,8 @@ K_{t}&=&(1-\delta) K_{t-1}+(1-\Phi(\Xi_t))I_t\,\\ \nonumber
       \setlength\itemsep{1em}
 \item For  $\Phi(\Xi_t)=\phi_X (\Xi_t-1)^2$ find the new equilibrium and solve the model in Dynare
 \item Do it first by setting  $\phi_X = 2$
-\item Construct a [0:4] vector with step=1 grid for $\phi_X$ and show the different impulse responses for every different value of $\phi_X$ after a positive TFP shock
-\item Important! At each iteration set \texttt{dynare modfile.mod \color{red}noclearall}. Dynare does not clear up the workspace after each iteration
+\item Construct a [0:4] vector with step=1 grid for $\phi_X$ and show the different impulse responses for {\color{blue}{ouput, consumption, investment and labour hours}} for every different value of $\phi_X$ after a positive TFP shock
+\item Important! At each iteration set \texttt{dynare modfile.mod \color{magenta}noclearall}. Dynare does not clear up the workspace after each iteration
  \end{itemize}
 \end{frame}
 
@@ -412,7 +412,6 @@ K_{t}&=&(1-\delta) K_{t-1}+(1-\Phi(\Xi_t))I_t\,\\ \nonumber
 \begin{frame}[containsverbatim]\frametitle{\textbf{Exercise - Introducing Investment Adjustment Costs}}
  What you need
   In Matlab
-
 \begin{lstlisting}[language=Octave]  
 % Give to Phix the value of every iteration
 phiX   = Phix_value(i); 
