@@ -9,6 +9,7 @@
 \usepackage{amsthm}
 \usepackage{scalefnt}
 \usepackage{natbib}
+\usepackage{listings}
 
 \hypersetup{
     colorlinks,
@@ -392,16 +393,41 @@ K_{t}&=&(1-\delta) K_{t-1}+(1-\Phi(\Xi_t))I_t\,\\ \nonumber
 0\,;\,\,\Phi(1)=\Phi'(1)=0 \label{Kaccum1}
  \end{eqnarray}
 \item $I_t$ units of output converts to $(1-\Phi(\Xi_t))I_t$ of new capital sold at a real price $Q_t$ 
-\item We have two constraints and two Lagrange multipliers: $\lambda_t$ \& $\mu_t$. Express $Q_t$ as $\mu_t/\lambda_t$: the marginal value of capital measured in terms of consumption goods (this is Tobin's $Q$)
+\item We now have two constraints and two Lagrange multipliers: $\lambda_t$ \& $\mu_t$. 
+\item Express $Q_t$ as $\mu_t/\lambda_t$: the marginal value of capital measured in terms of consumption goods (this is Tobin's $Q$) and express the FOC to Investment in terms of $Q_t$.
  \end{itemize}
 \end{frame}
 
 \begin{frame}[t]\frametitle{\textbf{Exercise - Introducing Investment Adjustment Costs}}
   \begin{itemize}
-\item If  $\Phi(\Xi_t)=\phi_X (\Xi_t-1)^2$ find the new equilibrium and solve the model in Dynare
-\item Do it first with a $\phi_X = 2$
-\item Extra: Construct a 5 point grid for $\phi_X$ and show the different impulse responses for every different value of $\phi_X$ after a positive TFP shock
+      \setlength\itemsep{1em}
+\item For  $\Phi(\Xi_t)=\phi_X (\Xi_t-1)^2$ find the new equilibrium and solve the model in Dynare
+\item Do it first by setting  $\phi_X = 2$
+\item Construct a [0:4] vector with step=1 grid for $\phi_X$ and show the different impulse responses for every different value of $\phi_X$ after a positive TFP shock
+\item Important! At each iteration set \texttt{dynare modfile.mod \color{red}noclearall}. Dynare does not clear up the workspace after each iteration
  \end{itemize}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]\frametitle{\textbf{Exercise - Introducing Investment Adjustment Costs}}
+ What you need
+  In Matlab
+
+\begin{lstlisting}[language=Octave]  
+% Give to Phix the value of every iteration
+phiX   = Phix_value(i); 
+% Send the parameter value to Dynare Phix_value       
+save Phix_value phiX  
+% Run the mod file every time with noclearall option        
+dynare RBC1_inv_adj noclearall
+\end{lstlisting}
+
+In the parameter section of Dynare 
+
+\begin{lstlisting}[language=Octave]
+load Phix_value;
+set_param_value('phiX',phiX); 
+\end{lstlisting}
 \end{frame}
 
 
