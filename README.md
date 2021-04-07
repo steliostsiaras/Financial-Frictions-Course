@@ -34,3 +34,6 @@ This is of hight importance as we will go through much more complicated models i
 ##### :computer: Prerequisites 
 - The model file runs with Matlab and Dynare 4.6.x
 - The mod file the SS file need to be at the same folder
+
+## Day 2: Asymmetric information and limited commitment
+
