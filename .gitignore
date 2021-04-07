@@ -1,6 +1,7 @@
 ## Exercise 1 Solutions
 
 ## Core latex/pdflatex auxiliary files:
+*.DS_Store
 *.aux
 *.lof
 *.log
