@@ -3,6 +3,7 @@ Dynare/exercise/
 ## Core latex/pdflatex auxiliary files:
 *.DS_Store
 *.aux
+*.tex
 *.lof
 *.log
 *.lot
