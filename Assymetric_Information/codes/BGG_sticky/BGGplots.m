@@ -31,8 +31,7 @@ phierr = zeros(t,pol);
 premrrf= zeros(t,pol);
 
 for i = 1:pol
-cd 'GitHub/Financial_Firctions_Course_EUI/Financial-Frictions-Course/Assymetric_Information/codes/BGG_sticky/'
-
+cd 'https://github.com/steliostsiaras/Financial-Frictions-Course/blob/main/Assymetric_Information/codes/BGG_flexi/BGGsticky'
 dynare BGGsticky noclearall 
 
 yrr (:,i)       = oo_.irfs.YY_e_A;
