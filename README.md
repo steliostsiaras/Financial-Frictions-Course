@@ -40,3 +40,9 @@ This is of hight importance as we will go through much more complicated models i
 In the second lecture we will cover one of the most widely used option for financial frictions in DSGE models, the assymetric information friction. 
 This started from [Townsded (1979)](https://www.sciencedirect.com/science/article/pii/0022053179900310) and became widely used in a DSGE model from [Bernanke, Gertler and Gilchrist (1999)](https://www.nber.org/system/files/working_papers/w6455/w6455.pdf). We will go through the latter in detail both in terms of theory and coding/ solving the model with Dynare
 
+### Material
+
+- BGG model presentation [slides]
+- [Codes] to solve the BGG model in Dynare 
+- Codes include both flexible price and sticky price specification of the real sector, together with the BGG friction
+
