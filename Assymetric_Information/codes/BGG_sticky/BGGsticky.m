@@ -4,6 +4,12 @@
 % Warning : this file is generated automatically by Dynare
 %           from model file (.mod)
 
+if isoctave || matlab_ver_less_than('8.6')
+    clear all
+else
+    clearvars -global
+    clear_persistent_variables(fileparts(which('dynare')), false)
+end
 tic0 = tic;
 % Save empty dates and dseries objects in memory.
 dates('initialize');
@@ -878,11 +884,11 @@ M_.params( 21 ) = 0;
 signal_corr_p = M_.params( 21 );
 M_.params( 22 ) = 0.0282985;
 stdsigma2_p = M_.params( 22 );
-M_.params( 23 ) = 1;
+M_.params( 23 ) = 0.0700061;
 stdsigma1_p = M_.params( 23 );
-M_.params( 24 ) = 1;
+M_.params( 24 ) = 0.07;
 stdA = M_.params( 24 );
-M_.params( 25 ) = 1;
+M_.params( 25 ) = 0.028;
 stdG = M_.params( 25 );
 %
 % SHOCKS instructions

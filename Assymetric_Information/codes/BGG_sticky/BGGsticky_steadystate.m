@@ -1,29 +1,23 @@
 %% This is the MATLAB program to find the steady state in BGG
 %% It takes the parameters from the DYNARE BGG.mod and gives the steady state
 %%
-function [ys,check] = BGG_steadystate(ys,exe)
-global M_ lgy_
+function [ys,params,check] = BGGsticky_steadystate(ys,exo,M_,options_)
 
-%% DO NOT CHANGE THIS PART.
-%%
-%% Here we load the values of the deep parameters in a loop.
-%%
-
-if isfield(M_,'param_nbr') == 1
 NumberOfParameters = M_.param_nbr;
-for i = 1:NumberOfParameters
-  paramname = deblank(M_.param_names(i,:));
-  eval([ paramname ' = M_.params(' int2str(i) ');']);
+for ii = 1:NumberOfParameters
+  paramname = M_.param_names{ii};
+  eval([ paramname ' = M_.params(' int2str(ii) ');']);
 end
+% initialize indicator
 check = 0;
-end
+
 
 %% THIS BLOCK IS MODEL SPECIFIC.
 %%
-%% Here we itroduce the model equations for the steady state
-%%
+%% Here the user has to define the steady state.
+%
 
-%Basics
+
 Pm           = (els-1)/els;
 R            = 1/betta;
 Lambda       = betta;
@@ -198,51 +192,21 @@ Sg = 1;
 
 %% END OF THE MODEL SPECIFIC BLOCK.
 
-
 %% DO NOT CHANGE THIS PART.
 %%
-%% Here we define the steady state vZNues of the endogenous variables of
-%% the model.
+%% Store model parameters
+params=NaN(NumberOfParameters,1);
+for iter = 1:length(M_.params) %update parameters set in the file
+  eval([ 'params(' num2str(iter) ') = ' M_.param_names{iter} ';' ])
+end
+
+NumberOfEndogenousVariables = M_.orig_endo_nbr; %auxiliary variables are set automatically
+for ii = 1:NumberOfEndogenousVariables
+  varname = M_.endo_names{ii};
+  eval(['ys(' int2str(ii) ') = ' varname ';']);
+end
+
+end                                                  % End of the loop.
 %%
 
-
-for iter = 1:length(M_.params)
-  eval([ 'M_.params(' num2str(iter) ') = ' M_.param_names(iter,:) ';' ])
-end
-
-if isfield(M_,'param_nbr') == 1
-
-if isfield(M_,'orig_endo_nbr') == 1
-NumberOfEndogenousVariables = M_.orig_endo_nbr;
-else
-NumberOfEndogenousVariables = M_.endo_nbr;
-end
-ys = zeros(NumberOfEndogenousVariables,1);
-for i = 1:NumberOfEndogenousVariables
-  varname = deblank(M_.endo_names(i,:));
-  eval(['ys(' int2str(i) ') = ' varname ';']);
-end
-else
-ys=zeros(length(lgy_),1);
-for i = 1:length(lgy_)
-    ys(i) = eval(lgy_(i,:));
-end
-check = 0;
-end
-end
-
-%% The parameters defined in DYNARE:
-% betta=0.99;
-% ksie=0.0102;
-% ksi=0.003;
-% mon=0.0098;
-% sigmae=0.9750;
-% sigma=0.9720;
-% sigma_omega=0.3136;
-% delta=0.025;
-% alphha=0.33;
-% gammma=0.5;
-% chil=5.584;
-% epsl=0.333;
-% theta=0.383;
 

@@ -1,6 +1,6 @@
 //                           BGG with Flexible Prices. 
 
-% Runs with Dynare up to 4.5.x
+% Runs with Dynare up to 4.6.x
 
 % Match tartgets by calibrating three parameters
 % (sigmae,sigma_omega,mon) in order to get

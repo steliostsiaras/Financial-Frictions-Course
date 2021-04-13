@@ -1,5 +1,6 @@
 %% Responses to productivity shock 
-% Comparison of NK-BGG with plain RBC
+%% Comparison of NK-BGG with plain RBC
+%%
 clear;
 
 pol=1;
@@ -31,7 +32,8 @@ phierr = zeros(t,pol);
 premrrf= zeros(t,pol);
 
 for i = 1:pol
-cd 'https://github.com/steliostsiaras/Financial-Frictions-Course/blob/main/Assymetric_Information/codes/BGG_flexi/BGGsticky'
+cd '/Users/alabama/Documents/GitHub/Financial_Firctions_Course_EUI/Financial-Frictions-Course/Assymetric_Information/codes/BGG_sticky/'
+
 dynare BGGsticky noclearall 
 
 yrr (:,i)       = oo_.irfs.YY_e_A;
@@ -57,7 +59,7 @@ labrrf          = oo_.irfs.LabLabF_e_A;
 end
 
 i=2;
-cd 'GitHub/Financial_Firctions_Course_EUI/Financial-Frictions-Course/Assymetric_Information/codes/BGG_flexi/'
+cd '/Users/alabama/Documents/GitHub/Financial_Firctions_Course_EUI/Financial-Frictions-Course/Assymetric_Information/codes/BGG_flexi/'
 dynare BGGflexi noclearall 
 yrr (:,i)       = oo_.irfs.YY_e_A;
 crr (:,i)       = oo_.irfs.CC_e_A;
@@ -165,7 +167,7 @@ axis(sh,'off');
 
 %% Responses to RISK SHOCK
 %%
-cd '/Users/alabama/Documents/GitHub/Financial_Firctions_Course_EUI/Financial-Frictions-Course/Assymetric_Information/codes/BGG_sticky/'
+cd '/Users/alabama/Documents/GitHub/Financial_Firctions_Course_EUI/Financial-Frictions-Course/Assymetric_Information/codes/BGG_sticky'
 
 clear;
 
@@ -201,25 +203,25 @@ for i = 1:1
 
 dynare BGGsticky noclearall 
 
-yrS (:,i)       = oo_.irfs.YY_e_sigma;
-crS (:,i)       = oo_.irfs.CC_e_sigma;
-irS (:,i)       = oo_.irfs.II_e_sigma;
-krS (:,i)       = oo_.irfs.KK_e_sigma;
-labrS(:,i)      = oo_.irfs.LabLab_e_sigma;
-creditrS(:,i)   = oo_.irfs.LeLe_e_sigma;
-netwrS (:,i)    = oo_.irfs.NeNe_e_sigma;
-phierS (:,i)    = oo_.irfs.phiephie_e_sigma;
-rS(:,i)         = oo_.irfs.RR_e_sigma;
-defaultS(:,i)   = oo_.irfs.bankrupt_e_sigma;
-premrS(:,i)     = oo_.irfs.spreadspread_e_sigma;
+yrS (:,i)       = oo_.irfs.YY_e_RS;
+crS (:,i)       = oo_.irfs.CC_e_RS;
+irS (:,i)       = oo_.irfs.II_e_RS;
+krS (:,i)       = oo_.irfs.KK_e_RS;
+labrS(:,i)      = oo_.irfs.LabLab_e_RS;
+creditrS(:,i)   = oo_.irfs.LeLe_e_RS;
+netwrS (:,i)    = oo_.irfs.NeNe_e_RS;
+phierS (:,i)    = oo_.irfs.phiephie_e_RS;
+rS(:,i)         = oo_.irfs.RR_e_RS;
+defaultS(:,i)   = oo_.irfs.bankrupt_e_RS;
+premrS(:,i)     = oo_.irfs.spreadspread_e_RS;
 
-yrSf (:,i)      = oo_.irfs.YYF_e_sigma;
-crSf (:,i)      = oo_.irfs.CCF_e_sigma;
-irSf (:,i)      = oo_.irfs.IIF_e_sigma;
-krSf (:,i)      = oo_.irfs.KKF_e_sigma;
-rSf(:,i)        = oo_.irfs.RRF_e_sigma;
-premrSf(:,i)    = oo_.irfs.spreadspreadF_e_sigma;
-labrSf          = oo_.irfs.LabLabF_e_sigma;
+yrSf (:,i)      = oo_.irfs.YYF_e_RS;
+crSf (:,i)      = oo_.irfs.CCF_e_RS;
+irSf (:,i)      = oo_.irfs.IIF_e_RS;
+krSf (:,i)      = oo_.irfs.KKF_e_RS;
+rSf(:,i)        = oo_.irfs.RRF_e_RS;
+premrSf(:,i)    = oo_.irfs.spreadspreadF_e_RS;
+labrSf          = oo_.irfs.LabLabF_e_RS;
 
 end
 
