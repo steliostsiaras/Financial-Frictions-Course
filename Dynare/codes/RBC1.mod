@@ -14,7 +14,7 @@ varexo epsA;
 % Parameters %
 %%%%%%%%%%%%%%
 parameters cy iy ky
-H_bar alp gy betta delta rhoA rhoG A_bar sigma omega phi;
+H_bar alp gy betta delta rhoA A_bar sigma omega phi;
 
 % Parameter Values %
 %%%%%%%%%%%%%%%%%%%%
@@ -37,7 +37,6 @@ A_bar=1;
 
 %shock persistence
 rhoA=0.75;
-rhoG=0.75;
 
 %shock scaling  parameter
 sigma=0.01; //for order 2 or 3 stochastic simulations 

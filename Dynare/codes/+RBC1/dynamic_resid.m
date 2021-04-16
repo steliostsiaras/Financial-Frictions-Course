@@ -24,13 +24,13 @@ if T_flag
 end
 residual = zeros(19, 1);
 lhs = y(4);
-rhs = log(y(8))-params(13)*y(10)^(1+params(14))/(1+params(14));
+rhs = log(y(8))-params(12)*y(10)^(1+params(13))/(1+params(13));
 residual(1) = lhs - rhs;
 lhs = y(5);
 rhs = 1/y(8);
 residual(2) = lhs - rhs;
 lhs = y(6);
-rhs = (-params(13))*y(10)^params(14);
+rhs = (-params(12))*y(10)^params(13);
 residual(3) = lhs - rhs;
 lhs = y(5);
 rhs = params(7)*y(7)*y(23);
@@ -69,7 +69,7 @@ lhs = y(16);
 rhs = y(15);
 residual(15) = lhs - rhs;
 lhs = log(y(14))-log((steady_state(11)));
-rhs = params(9)*(log(y(3))-log((steady_state(11))))+params(12)*x(it_, 1);
+rhs = params(9)*(log(y(3))-log((steady_state(11))))+params(11)*x(it_, 1);
 residual(16) = lhs - rhs;
 lhs = y(17);
 rhs = y(12)/y(11);

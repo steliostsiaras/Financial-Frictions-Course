@@ -21,11 +21,11 @@ end
 g1 = zeros(19, 19);
 g1(1,1)=1;
 g1(1,5)=(-(1/y(5)));
-g1(1,7)=params(13)*getPowerDeriv(y(7),1+params(14),1)/(1+params(14));
+g1(1,7)=params(12)*getPowerDeriv(y(7),1+params(13),1)/(1+params(13));
 g1(2,2)=1;
 g1(2,5)=(-((-1)/(y(5)*y(5))));
 g1(3,3)=1;
-g1(3,7)=(-((-params(13))*getPowerDeriv(y(7),params(14),1)));
+g1(3,7)=(-((-params(12))*getPowerDeriv(y(7),params(13),1)));
 g1(4,2)=1-params(7)*y(4);
 g1(4,4)=(-(y(2)*params(7)));
 g1(5,2)=y(3)/(y(2)*y(2));
