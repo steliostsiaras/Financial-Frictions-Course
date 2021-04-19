@@ -55,6 +55,7 @@ This started from [Townsded (1979)](https://www.sciencedirect.com/science/articl
  - Find the steady state and solve it in Dynare
  - Ideally, extend in in some dimension (e.g. add macroprudential regulation policy)
  - Write up a 3-4 pages report with results, analysis etc.
+ - Joint works are encouraged 
 
  ### Option 2: Write a referee report or a research proposal
  #### Referee report
