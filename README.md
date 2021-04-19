@@ -46,3 +46,22 @@ This started from [Townsded (1979)](https://www.sciencedirect.com/science/articl
 - [Codes](Assymetric_Information/codes) to solve the BGG model in Dynare 
 - Codes include both flexible price and sticky price specification of the real sector, together with the BGG friction
 
+##  Final Evaluation
+
+ Students are given with two options
+ ### Option 1: Solving a Financial Frictions model 
+ - This is mainly for those that want to continue with this in their PhD
+ - Choose a paper of your choice with some financial friction component
+ - Find the steady state and solve it in Dynare
+ - Ideally, extend in in some dimension (e.g. add macroprudential regulation policy)
+ - Write up a 3-4 pages report with results, analysis etc.
+
+ ### Option 2: Write a referee report or a research proposal
+ #### Referee report
+ - Pick a paper of your choice or from the course outline
+ - Write a referee report
+#### Research Proposal
+ - Write a proposal concerning original research in one of the topics examined in the course
+ - Write a referee report
+ - The proposal could be an extension of one of the papers seen in the course, a new application of the models presented, or a new model/empirical analysis. 
+ - The key is to stress the motivation of the proposed research, what is new, why it is interesting and/or important.
