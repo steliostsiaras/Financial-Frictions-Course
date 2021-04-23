@@ -1,5 +1,5 @@
 
-@#define SS_block=1
+@#define SS_block=0
 % 0 for SS matlab file
 % 1 for analytical SS block in the model
 

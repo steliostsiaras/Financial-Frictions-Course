@@ -1,4 +1,4 @@
-function [ys,params,check] = RBC1_steadystate(ys,exo,M_,options_)
+function [ys,params,check] = RBC1_steadyst(ys,exo,M_,options_)
 
 NumberOfParameters = M_.param_nbr;
 for ii = 1:NumberOfParameters
