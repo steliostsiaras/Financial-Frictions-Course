@@ -96,7 +96,7 @@ spread = Rk-R;
 sigma_omega= sigma_omega_ss;
 bankrupt = p;
 Sg=1;
-
+X=1;
 
 YY=1;
 KK=1;

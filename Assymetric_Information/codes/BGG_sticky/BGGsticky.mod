@@ -62,9 +62,10 @@ log_xi0 log_xi1 log_xi2 log_xi3 log_xi4 log_xi5 log_xi6 log_xi7 log_xi8
 % Flexi Price
 Cf Ucf Lambdaf Labf Rf
 Ymf Kf Wf Rkf
-If Qf Gf Tf OUTGAP Pmf Zf
+If Qf Gf Tf OUTGAP Pmf Zf Sf Sdashf Xif
 
 p fnG fnGam DGam DG
+S Sdash Xi
 
 % Percentage Deviations
 YY CC II WW RR QQ RnRn PIPPIP OUTGAPOUTGAP RkRk NeNe spreadspread KK
@@ -84,7 +85,7 @@ e_xi1 e_xi2 e_xi3 e_xi4 e_xi5 e_xi6 e_xi7 e_xi8 e_RS;
 parameters 
 
 alphha betta gammma chil epsl delta 
-ksie eta taf G_over_Y  phiX kpY kpP rho_r els gam sig kap zzeta
+ksie eta  G_over_Y  phiX kpY kpP rho_r els gam sig kap zzeta
 rhosigma
 signal_corr_p stdsigma2_p stdsigma1_p stdA stdG;
 
@@ -93,7 +94,8 @@ signal_corr_p stdsigma2_p stdsigma1_p stdA stdG;
 %//sigmae   = 0.9740;      %0.9750-->BGG
 ksie     = 0.0102;         %0.0102-->BGG 
 %sigma_omega = 0.3136;
-%----------------------------------------		
+%----------------------------------------	
+phiX=    1;
 alphha   = 0.33; 		%Production function
 betta    = 0.99;  		%% Time preference
 gammma   = 0.500;      %% Habbit parameter
@@ -171,14 +173,19 @@ Z = alphha*Ym*Pm/(K(-1)*psi);
 
 
 
-
 %:::Law of Motion of Capital::: 8
-K = psi*(I+(1-delta)*K(-1)); 
+K=((1-S)*I+(1-delta)*K(-1));
+%
+%where
+%
+
+Xi=I/I(-1);
+S=phiX*(Xi-1)^2;
+Sdash=2*phiX*(Xi-1);
 
 
 %:::Price of Capital Goods::: 10
-Q = 1 + eta/2*(zeta*I/(I(-1))-1)^2+eta*(zeta*I/(I(-1))-1)*(I)/((I(-1)))-
-((Lambda(+1)))*eta*(((zeta*I(+1))/(I))-1)*((zeta*I(+1))/(I))^2;
+Q*(1-S-Xi*Sdash)+Lambda(+1)*Q(+1)*Sdash(+1)*Xi(+1)^2=1;
 
 
 %:::ENTREPRENEURS:::
@@ -226,7 +233,7 @@ DG    = 1/(omega*sigma_omega*sqrt(2*(4*atan(1))))*exp(-(log(omega)
 
 
 %:::Resource Constraint::: 25
-Y = C + Ce + G + I*(1+(eta/2)*((I/I(-1))-1)^2) + mon*fnG*Rk*Q(-1)*K(-1);
+Y = C + Ce + G + I + mon*fnG*Rk*Q(-1)*K(-1);
 G = T; 
 G = Sg*G_over_Y*(steady_state(Y));
 spread = Rk - R;
@@ -307,8 +314,13 @@ Zf = alphha*Ymf*Pmf/(Kf(-1)*psi);
 
 Rkf=psi*(Zf +(1-delta)*Qf)/Qf(-1);
 
-Qf = 1 + eta/2*(zeta*If/(If(-1))-1)^2+eta*(zeta*If/(If(-1))-1)*(If)/((If(-1)))-
-((Lambdaf(+1)))*eta*(((zeta*If(+1))/(If))-1)*((zeta*If(+1))/(If))^2;%  
+Xif=If/If(-1);
+Sf=phiX*(Xif-1)^2;
+Sdashf=2*phiX*(Xif-1);
+
+
+%:::Price of Capital Goods::: 10
+Qf*(1-Sf-Xif*Sdashf)+Lambdaf(+1)*Qf(+1)*Sdashf(+1)*Xif(+1)^2=1;
 
 Wf = Pmf*(1-alphha)*Ymf/Labf;
 
@@ -514,6 +526,6 @@ check;
 
 options_.nograph        = 1;
 
-stoch_simul(order=1,periods=20000,irf=40) ;
-%YY CC NeNe sigma_omega spreadspread KK
+stoch_simul(order=1,periods=20000,irf=40) 
+%YY CC NeNe sigma_omega spreadspread KK;
 %II LabLab RR QQ RnRn PIPPIP OUTGAPOUTGAP RkRk NeNe LeLe phiephie spreadspread bankrupt

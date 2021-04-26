@@ -18,6 +18,6 @@ function g2 = static_g2(T, y, x, params, T_flag)
 if T_flag
     T = BGGsticky.static_g2_tt(T, y, x, params);
 end
-g2 = sparse([],[],[],137,18769);
+g2 = sparse([],[],[],143,20449);
 
 end

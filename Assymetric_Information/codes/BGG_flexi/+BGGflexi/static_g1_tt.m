@@ -13,26 +13,21 @@ function T = static_g1_tt(T, y, x, params)
 %   T         [#temp variables by 1]  double   vector of temporary terms
 %
 
-assert(length(T) >= 30);
+assert(length(T) >= 20);
 
 T = BGGflexi.static_resid_tt(T, y, x, params);
 
-T(17) = (1-params(3))*getPowerDeriv(y(1)*(1-params(3)),(-1),1);
-T(18) = getPowerDeriv(y(22)*y(7),params(1),1);
-T(19) = exp((-(T(3)*T(3)))/2)/2.506628274631;
-T(20) = (-(1/y(19)))/y(27)*T(19);
-TEFD_fdd_0_1 = jacob_element('logncdf',1,{y(19),(-0.5)*T(1),y(27)});
-T(21) = TEFD_fdd_0_1;
-TEFD_fdd_0_2 = jacob_element('logncdf',2,{y(19),(-0.5)*T(1),y(27)});
-T(22) = TEFD_fdd_0_2;
-TEFD_fdd_0_3 = jacob_element('logncdf',3,{y(19),(-0.5)*T(1),y(27)});
-T(23) = TEFD_fdd_0_3;
-T(24) = 1-T(2)+y(19)*(-T(21))-T(20);
-T(25) = (-T(24));
-T(26) = T(19)*(y(27)*0.5*2*y(27)-(0.5*T(1)-log(y(19))))/(y(27)*y(27));
-T(27) = y(19)*(-(T(23)+T(22)*(-0.5)*2*y(27)))-T(26);
-T(28) = (-T(27));
-T(29) = 1/y(28)/(y(27)/y(28));
-T(30) = (-y(27))/(y(28)*y(28))/(y(27)/y(28));
+T(12) = (1-params(3))*getPowerDeriv(y(1)*(1-params(3)),(-1),1);
+T(13) = getPowerDeriv(y(22)*y(7),params(1),1);
+TEFD_fdd_0_1 = jacob_element('logncdf',1,{y(19),(-0.5)*T(7),y(27)});
+T(14) = TEFD_fdd_0_1;
+TEFD_fdd_0_2 = jacob_element('logncdf',2,{y(19),(-0.5)*T(7),y(27)});
+T(15) = TEFD_fdd_0_2;
+TEFD_fdd_0_3 = jacob_element('logncdf',3,{y(19),(-0.5)*T(7),y(27)});
+T(16) = TEFD_fdd_0_3;
+T(17) = exp((-(T(9)*T(9)))/2)/2.506628274631;
+T(18) = 1/y(28)/(y(27)/y(28));
+T(19) = (-y(27))/(y(28)*y(28))/(y(27)/y(28));
+T(20) = (y(38)*(y(37)-y(36)*y(29))+(1-y(37))*(y(38)-y(39)*y(29)))*(y(38)*(y(37)-y(36)*y(29))+(1-y(37))*(y(38)-y(39)*y(29)));
 
 end

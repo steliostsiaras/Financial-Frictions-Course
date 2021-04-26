@@ -132,7 +132,10 @@ Ucf=(Cf*(1-gammma))^(-1) -betta*gammma*(Cf*(1-gammma))^(-1);
 Lambdaf=betta;
 Qf = 1;
 OUTGAP=Ymf/Y;
-
+Xi=1;
+Sf=0;
+Sdashf = 0;
+Xif=1;
 
 YY=1;
 KK=1;
@@ -152,6 +155,7 @@ psipsi=1;
 phiephie=1;
 OUTGAPOUTGAP=1;
 LeLe =1;
+
 
 YYF=1;
 KKF=1;

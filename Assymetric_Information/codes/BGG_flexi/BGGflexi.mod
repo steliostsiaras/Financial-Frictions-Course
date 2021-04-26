@@ -22,8 +22,9 @@ Rk Rl Ne phie Le Ce rho
 rhoRex omega
 // Rest
 I Q psi G T spread
-sigmae sigma_omega sigma_omega_ss mon bankrupt Sg
+sigmae sigma_omega sigma_omega_ss mon bankrupt Sg X S Sdash
 
+p fnG fnGam DGam DG
 % Percentage Deviations
 YY CC II WW RR QQ RkRk NeNe spreadspread KK
 rhorho LabLab phiephie psipsi LeLe
@@ -38,7 +39,7 @@ e_RS % risk shock
 ;
 
 parameters  alphha betta gammma chil epsl delta 
-ksie eta taf G_over_Y  phiX kpY kpP  els gam sig 
+ksie phiX  G_over_Y   
 rhosigma rhog;
 
 %mon      = 0.12; // mon=monitoring
@@ -53,7 +54,7 @@ gammma   = 0.500;       %% Habbit parameter
 delta    = 0.025;		%% Amortization
 chil     = 5.584;		%% Rel. utility weight of labor
 epsl     = 0.333;	    %% Inverse Frisch elastitcity
-eta      = 1.5;         %% Inverse elasticity of net investment to the price of capital
+phiX     = 1;           %% Inverse elasticity of net investment to the price of capital
 G_over_Y = 0.2;
 
 rhosigma = 0.97;
@@ -61,21 +62,6 @@ rhog     = 0.97;
 
 model;
 
-% Auxiliary expressions.  These simplify the equations without adding
-% additional variables.
-
-# p      = logncdf(omega,-0.5*(sigma_omega)^2,sigma_omega);
-# p1     = logncdf(omega(+1),-0.5*(sigma_omega)^2,sigma_omega);
-# fnG    = 1 - normcdf((0.5*(sigma_omega)^2 -log(omega))/sigma_omega,0,1); 
-# fnG1   = 1 - normcdf((0.5*(sigma_omega)^2 -log(omega(+1)))/sigma_omega,0,1); %39
-# fnGam  = fnG+omega*(1-p);
-# fnGam1 = fnG1+omega(+1)*(1-p1);
-# DGam   = (1-p);
-# DGam1  = (1-p1);
-# DG     = 1/(omega*sigma_omega*sqrt(2*(4*atan(1))))*exp(-(log(omega)
-           +.5*(sigma_omega)^2)^2/(2*(sigma_omega)^2));
-# DG1    = 1/(omega(+1)*sigma_omega*sqrt(2*(4*atan(1))))*exp(-(log(omega(+1))
-        +.5*(sigma_omega)^2)^2/(2*(sigma_omega)^2));
 
 %:::CONSUMERS:::
 
@@ -116,15 +102,26 @@ Z = alphha*Y/(K(-1)*psi);
 
 
 %:::Law of Motion of Capital::: 8
-K = psi*(I+(1-delta)*K(-1)); 
+K=((1-S)*I+(1-delta)*K(-1));
+%
+%where
+%
 
-%:::Available Capital net of monitoring costs::: 9
-//K = (1-fnG*mon)*K;
+X=I/I(-1);
+S=phiX*(X-1)^2;
+Sdash=2*phiX*(X-1);
+
 
 %:::Price of Capital Goods::: 10
-Q = 1 + eta/2*(I/(I(-1))-1)^2+eta*(I/(I(-1))-1)*(I)/((I(-1)))-
-((Lambda(+1)))*eta*(((I(+1))/(I))-1)*((I(+1))/(I))^2;
+Q*(1-S-X*Sdash)+Lambda(+1)*Q(+1)*Sdash(+1)*X(+1)^2=1;
 
+
+p     = logncdf(omega,-0.5*(sigma_omega)^2,sigma_omega);
+fnG   = 1 - normcdf((0.5*(sigma_omega)^2 -log(omega))/sigma_omega,0,1); %39
+fnGam = fnG+omega*(1-p);
+DGam  = (1-p);
+DG    = 1/(omega*sigma_omega*sqrt(2*(4*atan(1))))*exp(-(log(omega)
+        +.5*(sigma_omega)^2)^2/(2*(sigma_omega)^2));
 
 %:::ENTREPRENEURS:::
 
@@ -147,15 +144,8 @@ Ce = (1-ksie)*(1-sigmae)*(1-fnGam)*Rk*Q(-1)*K(-1);
 %:::Leverage::: 15
 Ne*phie = Q*K;
 
-%:::Zero profit Condition::: 16
-//((Q(-1)*K(-1))/(Ne(-1))*Rk*(fnGam-mon*fnG)) = R*((Q(-1)*K(-1)/(Ne(-1)))-1);                                  
-//phie*Rk(+1)*(fnGam1-mon*fnG1)=R(+1)*(phie-1);
-K(-1)*( 1 - (Rk/R(-1))*(fnGam-mon*fnG)) - Ne(-1);
-
-%:::Idiosyncratic Shock::: 17
-//Rl*(Le)/(Rk*Q(-1)*K(-1)) = omega;    //psi here  ,Rk(+1)           
-//omega = Rl(-1)*(Q(-1)*K(-1)-Ne(-1))/(Rk*Q(-1)*K(-1));
-omega = Rl*(Le(-1))/(Rk*Q(-1)*K(-1));
+phie*Rk(+1)*(fnGam(+1)-mon*fnG(+1))=R(+1)*(phie-1); 
+omega = Rl(-1)*(Q(-1)*K(-1) - Ne(-1))/(Rk*Q(-1)*K(-1));
 
 rho   = (DGam/((fnGam-mon*fnG)*DGam+(1-fnGam)*(DGam-mon*DG)));
 
@@ -165,7 +155,7 @@ Rk(+1) = rhoRex(+1);
 
 
 %:::Resource Constraint::: 25
-Y = C + Ce + G + I*(1+(eta/2)*((I/I(-1))-1)^2) + mon*fnG*Rk*Q(-1)*K(-1);
+Y = C + Ce + G + I + mon*fnG*Rk*Q(-1)*K(-1);
 G = T; 
 G = G_over_Y*(steady_state(Y));
 spread = Rk(+1)-R;
@@ -184,7 +174,7 @@ log(Sg) = rhog*log(Sg(-1)) + e_G;
 log(sigma_omega / sigma_omega_ss) = rhosigma * log(sigma_omega(-1) / sigma_omega_ss)  + e_RS*0.07;
 
 % Capital Quality Shock
-log(psi) = rhog*log(psi(-1)) + e_KQ;
+log(psi) = rhog*log(psi(-1)) - e_KQ;
 
 bankrupt = p;
 
@@ -226,11 +216,9 @@ end;
 
 
 steady;
-resid(1); 
-check;
 
-options_.nograph        = 1;
+options_.nograph   = 1;
 
 stoch_simul(order=1,periods=10000,irf=40) ;
-%YY CC II LabLab RR QQ RkRk NeNe LeLe phiephie spreadspread bankrupt
+%YY CC II LabLab RR QQ RkRk NeNe LeLe phiephie spreadspread bankrupt ;
 %NeNe sigma_omega spreadspread;
