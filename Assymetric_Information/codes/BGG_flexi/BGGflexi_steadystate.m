@@ -26,8 +26,8 @@ Lambda       = betta;
 p_mom        =  0.03;     %Steady state default. 3% default quarterly. 
 
 p            = p_mom;
-rho          =  1 + 0.02/4; %0.02/4; %    %steady state premium
-phie_mom     =   2; 
+rho          = 1 + 0.02/4; %0.02/4; %    %steady state premium
+phie_mom     = 2; 
 phie         = phie_mom;
 
 %% Calibrating the model with targets phi,rho,default...
@@ -51,11 +51,11 @@ omega  = exp(c(8));
 Rk=(1/betta)*rho;
 Ne_over_K=1/phie;
 Loans_over_K=1-Ne_over_K;
-Rl=omega*Rk*(Loans_over_K)^-1;
-Z=Rk+delta-1;
+Z=omega*Rk*(Loans_over_K)^-1;
+rK=Rk+delta-1;
 
 %Consumer
-L_over_K=(Z/(alphha))^(1/(1-alphha));
+L_over_K=(rK/(alphha))^(1/(1-alphha));
 Ce_over_K=(1-ksie)*(1-sigmae)*(1-fnGam)*Rk;
 C_over_K=0.8*(L_over_K)^(1-alphha)-delta-mon*fnG*Rk-Ce_over_K;
 Y_over_K=(C_over_K+Ce_over_K+delta+mon*fnG*Rk)*0.8^(-1);

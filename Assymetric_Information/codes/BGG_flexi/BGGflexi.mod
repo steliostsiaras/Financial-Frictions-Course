@@ -15,9 +15,9 @@ var
 // Consumers
 C Uc Lambda Lab R
 // Firms
-Y K W Z A
+Y K W A rK
 // Entrepreneurs
-Rk Rl Ne phie Le Ce rho 
+Rk Z Ne phie Le Ce rho 
 % p fnGam fnG DGam DG 
 rhoRex omega
 // Rest
@@ -35,18 +35,14 @@ varexo
 e_A    % productivity
 e_G    % gov spending
 e_KQ   % capital quality
-e_RS % risk shock
+e_RS   % risk shock
 ;
 
 parameters  alphha betta gammma chil epsl delta 
 ksie phiX  G_over_Y   
 rhosigma rhog;
 
-%mon      = 0.12; // mon=monitoring
-
-%sigmae   = 0.9750;       % Survival Probability
 ksie     = 0.0102;       % Start up transfer
-%sigma_omega = 0.3136;
 %----------------------------------------		
 alphha   = 0.33; 		%% Production function
 betta    = 0.99;  		%% Time preference
@@ -93,7 +89,7 @@ Y = A*((psi*K(-1))^(alphha))*Lab^(1-alphha);
 W = (1-alphha)*Y/Lab;
 
 %:::Return on Capital::: 7
-Z = alphha*Y/(K(-1)*psi); 
+rK = alphha*Y/(K(-1)*psi); 
 
 
 %:::CAPITAL GOODS PRODUCERS:::
@@ -130,7 +126,7 @@ DG    = 1/(omega*sigma_omega*sqrt(2*(4*atan(1))))*exp(-(log(omega)
 
 
 %:::Real return of capital::: 11
-Rk = psi*(Z+(1-delta)*Q)/Q(-1);
+Rk = psi*(rK+(1-delta)*Q)/Q(-1);
 
 %:::Balance Sheet::: 12
 Q*K= Le + Ne;
@@ -145,7 +141,7 @@ Ce = (1-ksie)*(1-sigmae)*(1-fnGam)*Rk*Q(-1)*K(-1);
 Ne*phie = Q*K;
 
 phie*Rk(+1)*(fnGam(+1)-mon*fnG(+1))=R(+1)*(phie-1); 
-omega = Rl(-1)*(Q(-1)*K(-1) - Ne(-1))/(Rk*Q(-1)*K(-1));
+omega = Z(-1)*(Q(-1)*K(-1) - Ne(-1))/(Rk*Q(-1)*K(-1));
 
 rho   = (DGam/((fnGam-mon*fnG)*DGam+(1-fnGam)*(DGam-mon*DG)));
 

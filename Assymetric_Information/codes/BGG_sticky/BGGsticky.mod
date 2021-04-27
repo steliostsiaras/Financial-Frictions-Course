@@ -245,26 +245,26 @@ spread = Rk - R;
 
 
 
-//:::Price Dispersion:::
+%:::Price Dispersion:::
 D = gam*(D(-1))*(PIP(-1))^(-kap*els)*(PIP)^els +   (1-gam)* (PIS/PIP)^(-els);
 //((1-gam*(PIP(-1))^(kap*(1-gam))*(PIP)^(gam-1))/(1-gam))^(-els/(1-gam));
 
-//:::Optimal price choice I:::
+%:::Optimal price choice I:::
 F = (Y)*(Pm)+gam*(Lambda(+1))*(PIP(+1))^els*((PIP))^(-els*kap)*(F(+1));
 
-//:::Optimal price choice II:::
+%:::Optimal price choice II:::
 H = (Y)+gam*(Lambda(+1))*(PIP(+1))^(els-1)*(PIP)^(kap*(1-els))*(H(+1));
 
-//:::Optimal price choice III:::
+%:::Optimal price choice III:::
 PIS = els/(els-1)*(F)/(H)*(PIP);
 
-//:::Price index::: 
+%:::Price index::: 
 PIP^(1-els) = gam*(PIP(-1))^(kap*(1-els))+(1-gam)*(PIS)^(1-els);
 
-//:::Fisher equation:::
+%:::Fisher equation:::
 (Rn) = (R)*(PIP(+1));
 
-//:::Taylor Rule::: 1 for flexibme price adjustment, 0 for other
+%:::Taylor Rule::: 1 for flexible price adjustment, 0 for other
 
 @#  if TRflexi == 0  
 log(Rn/STEADY_STATE(Rn))=rho_r*log(Rn(-1)/STEADY_STATE(Rn))+(1-rho_r)*kpP *log(PIP/STEADY_STATE(PIP))
