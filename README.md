@@ -43,6 +43,7 @@ This started from [Townsded (1979)](https://www.sciencedirect.com/science/articl
 ### Material
 
 - BGG model presentation [slides](Assymetric_Information/slides/Asym_Information.pdf)
+- BGG equations [document](Assymetric_Information/slides/BGG_equations.pdf)
 - [Codes](Assymetric_Information/codes) to solve the BGG model in Dynare 
 - Codes include both flexible price and sticky price specification of the real sector, together with the BGG friction
 
