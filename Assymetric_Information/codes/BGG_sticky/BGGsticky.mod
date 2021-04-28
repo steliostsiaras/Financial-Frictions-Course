@@ -526,6 +526,6 @@ check;
 
 options_.nograph        = 1;
 
-stoch_simul(order=1,periods=20000,irf=40) 
+stoch_simul(order=1,periods=10000,irf=40) 
 %YY CC NeNe sigma_omega spreadspread KK;
 %II LabLab RR QQ RnRn PIPPIP OUTGAPOUTGAP RkRk NeNe LeLe phiephie spreadspread bankrupt
