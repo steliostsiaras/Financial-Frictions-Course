@@ -26,7 +26,7 @@ external_function(name=logncdf, nargs=3);
 @#define stopshock= 0
 
 % when stopsignal = 1, then signals on risk are turned off
-@#define stopsignal= 1
+@#define stopsignal= 0
 
 % when stopunant = 1, then unanticipated risk shock turned off
 @#define stopunant= 0
@@ -118,9 +118,9 @@ rhosigma = 0.97;
 rhog     = 0.97;
 signal_corr_p = 0;//0.3861343; //zero corellaion btw shocks to get the straight lines in CMR Fig 2
 stdsigma2_p = 0.0282985;
-stdsigma1_p = 0.0700061;
-stdA        = 0.07;
-stdG        = 0.028;
+stdsigma1_p = 0.0282985;%0.0700061;
+stdA        = 1;%0.07;
+stdG        = 1;%0.028;
 
 model;
 
@@ -382,12 +382,8 @@ log(A) = 0.75*log(A(-1)) + e_A;
 % Government Spending Shock
 log(Sg) = 0.75*log(Sg(-1)) + e_G;
 
-% Risk Shock
-% *-OLD-*
-% log(sigma_omega / sigma_omega_ss) = rhosigma * log(sigma_omega(-1) / sigma_omega_ss)  + epsilonsigmae;
 
-
-% NEW 
+% Risk Shock 
 log(sigma_omega / sigma_omega_ss) = rhosigma * log(sigma_omega(-1) / sigma_omega_ss)  + log_xi0 
   @#for index in ["1", "2", "3", "4", "5", "6", "7", "8"]
     + log(xi@{index}(-@{index}))
@@ -505,7 +501,6 @@ shocks;
 var e_A; stderr (1-@{stopshock})*stdA;
 var e_G; stderr (1-@{stopshock})*stdG;
 var epsilonM; stderr 0;
-//var epsilonsigmae; stderr 0;
 var e_xi8; stderr 1-@{stopsignal};
 var e_xi7; stderr 1-@{stopsignal};
 var e_xi6; stderr 1-@{stopsignal};
@@ -514,7 +509,7 @@ var e_xi4; stderr 1-@{stopsignal};
 var e_xi3; stderr 1-@{stopsignal};
 var e_xi2; stderr 1-@{stopsignal};
 var e_xi1; stderr 1-@{stopsignal}; 
-var e_RS; stderr 1-@{stopunant};
+var e_RS;  stderr 1-@{stopunant};
 
 // IF STOPSIGNAL=1 THEN ALL STDERR=0
 end;
@@ -526,6 +521,5 @@ check;
 
 options_.nograph        = 1;
 
-stoch_simul(order=1,periods=10000,irf=40) 
-%YY CC NeNe sigma_omega spreadspread KK;
+stoch_simul(order=1,periods=10000,irf=40) ;%YY CC NeNe sigma_omega spreadspread KK;
 %II LabLab RR QQ RnRn PIPPIP OUTGAPOUTGAP RkRk NeNe LeLe phiephie spreadspread bankrupt

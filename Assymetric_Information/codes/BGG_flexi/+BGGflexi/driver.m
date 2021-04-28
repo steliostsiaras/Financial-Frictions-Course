@@ -4,12 +4,6 @@
 % Warning : this file is generated automatically by Dynare
 %           from model file (.mod)
 
-if isoctave || matlab_ver_less_than('8.6')
-    clear all
-else
-    clearvars -global
-    clear_persistent_variables(fileparts(which('dynare')), false)
-end
 tic0 = tic;
 % Define global variables.
 global M_ options_ oo_ estim_params_ bayestopt_ dataset_ dataset_info estimation_info ys0_ ex0_
@@ -66,18 +60,18 @@ M_.endo_names_long(7) = {'K'};
 M_.endo_names(8) = {'W'};
 M_.endo_names_tex(8) = {'W'};
 M_.endo_names_long(8) = {'W'};
-M_.endo_names(9) = {'Z'};
-M_.endo_names_tex(9) = {'Z'};
-M_.endo_names_long(9) = {'Z'};
-M_.endo_names(10) = {'A'};
-M_.endo_names_tex(10) = {'A'};
-M_.endo_names_long(10) = {'A'};
+M_.endo_names(9) = {'A'};
+M_.endo_names_tex(9) = {'A'};
+M_.endo_names_long(9) = {'A'};
+M_.endo_names(10) = {'rK'};
+M_.endo_names_tex(10) = {'rK'};
+M_.endo_names_long(10) = {'rK'};
 M_.endo_names(11) = {'Rk'};
 M_.endo_names_tex(11) = {'Rk'};
 M_.endo_names_long(11) = {'Rk'};
-M_.endo_names(12) = {'rK'};
-M_.endo_names_tex(12) = {'rK'};
-M_.endo_names_long(12) = {'rK'};
+M_.endo_names(12) = {'Z'};
+M_.endo_names_tex(12) = {'Z'};
+M_.endo_names_long(12) = {'Z'};
 M_.endo_names(13) = {'Ne'};
 M_.endo_names_tex(13) = {'Ne'};
 M_.endo_names_long(13) = {'Ne'};
@@ -283,10 +277,10 @@ M_.lead_lag_incidence = [
  0 16 0;
  2 17 0;
  0 18 0;
- 3 0 0;
- 4 19 0;
- 0 20 66;
- 0 21 0;
+ 3 19 0;
+ 0 20 0;
+ 0 21 66;
+ 4 0 0;
  5 22 0;
  0 23 0;
  0 24 0;
@@ -403,10 +397,10 @@ M_.mapping.R.eqidx = [3 23 26 31 44 ];
 M_.mapping.Y.eqidx = [4 5 6 7 28 30 37 ];
 M_.mapping.K.eqidx = [5 7 8 19 20 21 22 24 28 38 ];
 M_.mapping.W.eqidx = [6 41 ];
-M_.mapping.Z.eqidx = [24 ];
 M_.mapping.A.eqidx = [5 32 ];
-M_.mapping.Rk.eqidx = [18 20 21 23 24 27 28 31 45 ];
 M_.mapping.rK.eqidx = [7 18 ];
+M_.mapping.Rk.eqidx = [18 20 21 23 24 27 28 31 45 ];
+M_.mapping.Z.eqidx = [24 ];
 M_.mapping.Ne.eqidx = [19 20 22 24 47 ];
 M_.mapping.phie.eqidx = [22 23 50 ];
 M_.mapping.Le.eqidx = [19 51 ];
@@ -455,7 +449,7 @@ M_.mapping.e_KQ.eqidx = [35 ];
 M_.mapping.e_RS.eqidx = [34 ];
 M_.static_and_dynamic_models_differ = false;
 M_.has_external_function = true;
-M_.state_var = [2 7 9 10 13 20 21 22 27 31 ];
+M_.state_var = [2 7 9 12 13 20 21 22 27 31 ];
 M_.exo_names_orig_ord = [1:4];
 M_.maximum_lag = 1;
 M_.maximum_lead = 1;

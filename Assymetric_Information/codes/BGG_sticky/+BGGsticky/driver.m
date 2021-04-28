@@ -4,12 +4,6 @@
 % Warning : this file is generated automatically by Dynare
 %           from model file (.mod)
 
-if isoctave || matlab_ver_less_than('8.6')
-    clear all
-else
-    clearvars -global
-    clear_persistent_variables(fileparts(which('dynare')), false)
-end
 tic0 = tic;
 % Define global variables.
 global M_ options_ oo_ estim_params_ bayestopt_ dataset_ dataset_info estimation_info ys0_ ex0_
@@ -1202,11 +1196,11 @@ M_.params(20) = 0;
 signal_corr_p = M_.params(20);
 M_.params(21) = 0.0282985;
 stdsigma2_p = M_.params(21);
-M_.params(22) = 0.0700061;
+M_.params(22) = 0.0282985;
 stdsigma1_p = M_.params(22);
-M_.params(23) = 0.07;
+M_.params(23) = 1;
 stdA = M_.params(23);
-M_.params(24) = 0.028;
+M_.params(24) = 1;
 stdG = M_.params(24);
 %
 % SHOCKS instructions
@@ -1215,24 +1209,23 @@ M_.exo_det_length = 0;
 M_.Sigma_e(1, 1) = (M_.params(23))^2;
 M_.Sigma_e(2, 2) = (0)^2;
 M_.Sigma_e(3, 3) = (M_.params(24))^2;
-M_.Sigma_e(4, 4) = (0)^2;
-M_.Sigma_e(5, 5) = (0)^2;
-M_.Sigma_e(6, 6) = (0)^2;
-M_.Sigma_e(7, 7) = (0)^2;
-M_.Sigma_e(8, 8) = (0)^2;
-M_.Sigma_e(9, 9) = (0)^2;
-M_.Sigma_e(10, 10) = (0)^2;
-M_.Sigma_e(11, 11) = (0)^2;
+M_.Sigma_e(4, 4) = (1)^2;
+M_.Sigma_e(5, 5) = (1)^2;
+M_.Sigma_e(6, 6) = (1)^2;
+M_.Sigma_e(7, 7) = (1)^2;
+M_.Sigma_e(8, 8) = (1)^2;
+M_.Sigma_e(9, 9) = (1)^2;
+M_.Sigma_e(10, 10) = (1)^2;
+M_.Sigma_e(11, 11) = (1)^2;
 M_.Sigma_e(12, 12) = (1)^2;
 steady;
 resid(1); 
 oo_.dr.eigval = check(M_,options_,oo_);
-options_.nograph        = 0;
+options_.nograph        = 1;
 options_.irf = 40;
 options_.order = 1;
-options_.periods = 20000;
-options_.irf_shocks = {'e_A'};
-var_list_ = {'YY';'CC';'NeNe';'sigma_omega';'spreadspread';'KK'};
+options_.periods = 10000;
+var_list_ = {};
 [info, oo_, options_, M_] = stoch_simul(M_, options_, oo_, var_list_);
 save('BGGsticky_results.mat', 'oo_', 'M_', 'options_');
 if exist('estim_params_', 'var') == 1
