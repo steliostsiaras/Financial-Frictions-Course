@@ -31,6 +31,7 @@ external_function(name=logncdf, nargs=3);
 % when stopunant = 1, then unanticipated risk shock turned off
 @#define stopunant= 0
 
+% leave this as it is
 % when signal_corr_nonzero = 1, sig_corr_p can be non zero.
 @#define signal_corr_nonzero= 1
 
@@ -116,7 +117,7 @@ kap      = 1; // indexation
 rho_r    = 0.7;
 rhosigma = 0.97;
 rhog     = 0.97;
-signal_corr_p = 0;//0.3861343; //zero corellaion btw shocks to get the straight lines in CMR Fig 2
+signal_corr_p = 0; //zero corellaion btw shocks to get the straight lines in CMR Fig 2
 stdsigma2_p = 0.0282985;
 stdsigma1_p = 0.0282985;%0.0700061;
 stdA        = 1;  %0.07;
@@ -384,7 +385,10 @@ log(Sg) = 0.75*log(Sg(-1)) + e_G;
 
 
 % Risk Shock 
-log(sigma_omega / sigma_omega_ss) = rhosigma * log(sigma_omega(-1) / sigma_omega_ss)  + log_xi0 
+log(sigma_omega / sigma_omega_ss) = rhosigma * log(sigma_omega(-1) / sigma_omega_ss) 
+ % unanticipated component 
+ + log_xi0
+% anticipated components 
   @#for index in ["1", "2", "3", "4", "5", "6", "7", "8"]
     + log(xi@{index}(-@{index}))
   @#endfor 
