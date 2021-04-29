@@ -52,7 +52,7 @@ This started from [Townsded (1979)](https://www.sciencedirect.com/science/articl
 - Compare BGGflexi.mod and BBGsticky.mod, the model with flexible and sticky prices both are in [this folder](Assymetric_Information/codes)
 - Provide the impulse responses of both models in the same graph for output, consumption, investment, spread, loans and entrepreneurs' new worth
 - For the cases of a positive productivity and a risk shock
-- This [file](BGGplots_lecture.m) is the file I used for the lecture plots, it will help!
+- This [file](Assymetric_Information/codes/BGGplots_lecture.m) is the file I used for the lecture plots, it will help!
 ##  Final Evaluation
 
  Students are given with two options
