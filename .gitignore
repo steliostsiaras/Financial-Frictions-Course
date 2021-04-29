@@ -1,5 +1,8 @@
 ## Exercise 1 Solutions
 Dynare/exercise/
+## Exercise 2 Plots
+Assymetric_Information/codes/BGG_sticky/BGGplots.m
+Assymetric_Information/codes/BGG_flexi/BGGplots.m
 ## Core latex/pdflatex auxiliary files:
 *.DS_Store
 *.aux
