@@ -26,7 +26,7 @@ external_function(name=logncdf, nargs=3);
 @#define stopshock= 0
 
 % when stopsignal = 1, then signals on risk are turned off
-@#define stopsignal= 0
+@#define stopsignal= 1
 
 % when stopunant = 1, then unanticipated risk shock turned off
 @#define stopunant= 0
@@ -523,7 +523,7 @@ steady;
 resid(1); 
 check;
 
-options_.nograph        = 1;
+options_.nograph        = 0;
 
-stoch_simul(order=1,periods=10000,irf=40) ;%YY CC NeNe sigma_omega spreadspread KK;
+stoch_simul(order=1,periods=10000,irf=40) YY CC NeNe sigma_omega spreadspread KK;
 %II LabLab RR QQ RnRn PIPPIP OUTGAPOUTGAP RkRk NeNe LeLe phiephie spreadspread bankrupt
