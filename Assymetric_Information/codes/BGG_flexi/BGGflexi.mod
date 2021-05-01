@@ -4,7 +4,7 @@
 
 % Match tartgets by calibrating three parameters
 % (sigmae,sigma_omega,mon) in order to get
-% three targets: phi = 2, p =0.05, rho = 1 + 0.02/4.
+% three targets: phi = 2, p =0.03, rho = 1 + 0.02/4.
 % These target-moments are inserted in the SS-file and through the function the 
 % three parameters are computed. These three parameters are introduced as
 % variables here which are always in their SS-value (see below).
@@ -140,7 +140,10 @@ Ce = (1-ksie)*(1-sigmae)*(1-fnGam)*Rk*Q(-1)*K(-1);
 %:::Leverage::: 15
 Ne*phie = Q*K;
 
+%incentive compatibility constraint
 phie*Rk(+1)*(fnGam(+1)-mon*fnG(+1))=R(+1)*(phie-1); 
+
+%threshold omega value, omega= omega_bar
 omega = Z(-1)*(Q(-1)*K(-1) - Ne(-1))/(Rk*Q(-1)*K(-1));
 
 rho   = (DGam/((fnGam-mon*fnG)*DGam+(1-fnGam)*(DGam-mon*DG)));
@@ -167,7 +170,7 @@ log(A) = 0.75*log(A(-1)) + e_A;
 log(Sg) = rhog*log(Sg(-1)) + e_G;
 
 % Risk Shock
-log(sigma_omega / sigma_omega_ss) = rhosigma * log(sigma_omega(-1) / sigma_omega_ss)  + e_RS*0.07;
+log(sigma_omega / sigma_omega_ss) = rhosigma * log(sigma_omega(-1) / sigma_omega_ss)  + e_RS;
 
 % Capital Quality Shock
 log(psi) = rhog*log(psi(-1)) - e_KQ;
@@ -195,7 +198,7 @@ phiephie=phie/STEADY_STATE(phie);
 LeLe = Le/STEADY_STATE(Le);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Calibration of banking parameters%
+%Calibration of financiial sector parameters%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 sigmae=STEADY_STATE(sigmae);
 sigma_omega_ss=STEADY_STATE(sigma_omega);

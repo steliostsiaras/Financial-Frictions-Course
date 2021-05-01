@@ -25,7 +25,7 @@ external_function(name=logncdf, nargs=3);
 % when stopshock = 1, then non-risk shocks are all turned off
 @#define stopshock= 0
 
-% when stopsignal = 1, then signals on risk are turned off
+% when stopsignal = 1, the anticipated component of risk are turned off
 @#define stopsignal= 1
 
 % when stopunant = 1, then unanticipated risk shock turned off

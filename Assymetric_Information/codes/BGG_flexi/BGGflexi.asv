@@ -4,7 +4,7 @@
 
 % Match tartgets by calibrating three parameters
 % (sigmae,sigma_omega,mon) in order to get
-% three targets: phi = 2, p =0.05, rho = 1 + 0.02/4.
+% three targets: phi = 2, p =0.03, rho = 1 + 0.02/4.
 % These target-moments are inserted in the SS-file and through the function the 
 % three parameters are computed. These three parameters are introduced as
 % variables here which are always in their SS-value (see below).
@@ -15,15 +15,16 @@ var
 // Consumers
 C Uc Lambda Lab R
 // Firms
-Y K W Z A
+Y K W A rK
 // Entrepreneurs
-Rk Rl Ne phie Le Ce rho 
+Rk Z Ne phie Le Ce rho 
 % p fnGam fnG DGam DG 
 rhoRex omega
 // Rest
 I Q psi G T spread
 sigmae sigma_omega sigma_omega_ss mon bankrupt Sg X S Sdash
 
+p fnG fnGam DGam DG
 % Percentage Deviations
 YY CC II WW RR QQ RkRk NeNe spreadspread KK
 rhorho LabLab phiephie psipsi LeLe
@@ -34,18 +35,14 @@ varexo
 e_A    % productivity
 e_G    % gov spending
 e_KQ   % capital quality
-e_RS % risk shock
+e_RS   % risk shock
 ;
 
 parameters  alphha betta gammma chil epsl delta 
 ksie phiX  G_over_Y   
 rhosigma rhog;
 
-%mon      = 0.12; // mon=monitoring
-
-%sigmae   = 0.9750;       % Survival Probability
 ksie     = 0.0102;       % Start up transfer
-%sigma_omega = 0.3136;
 %----------------------------------------		
 alphha   = 0.33; 		%% Production function
 betta    = 0.99;  		%% Time preference
@@ -61,21 +58,6 @@ rhog     = 0.97;
 
 model;
 
-% Auxiliary expressions.  These simplify the equations without adding
-% additional variables.
-
-# p      = logncdf(omega,-0.5*(sigma_omega)^2,sigma_omega);
-# p1     = logncdf(omega(+1),-0.5*(sigma_omega)^2,sigma_omega);
-# fnG    = 1 - normcdf((0.5*(sigma_omega)^2 -log(omega))/sigma_omega,0,1); 
-# fnG1   = 1 - normcdf((0.5*(sigma_omega)^2 -log(omega(+1)))/sigma_omega,0,1); %39
-# fnGam  = fnG+omega*(1-p);
-# fnGam1 = fnG1+omega(+1)*(1-p1);
-# DGam   = (1-p);
-# DGam1  = (1-p1);
-# DG     = 1/(omega*sigma_omega*sqrt(2*(4*atan(1))))*exp(-(log(omega)
-           +.5*(sigma_omega)^2)^2/(2*(sigma_omega)^2));
-# DG1    = 1/(omega(+1)*sigma_omega*sqrt(2*(4*atan(1))))*exp(-(log(omega(+1))
-        +.5*(sigma_omega)^2)^2/(2*(sigma_omega)^2));
 
 %:::CONSUMERS:::
 
@@ -107,7 +89,7 @@ Y = A*((psi*K(-1))^(alphha))*Lab^(1-alphha);
 W = (1-alphha)*Y/Lab;
 
 %:::Return on Capital::: 7
-Z = alphha*Y/(K(-1)*psi); 
+rK = alphha*Y/(K(-1)*psi); 
 
 
 %:::CAPITAL GOODS PRODUCERS:::
@@ -130,6 +112,12 @@ Sdash=2*phiX*(X-1);
 Q*(1-S-X*Sdash)+Lambda(+1)*Q(+1)*Sdash(+1)*X(+1)^2=1;
 
 
+p     = logncdf(omega,-0.5*(sigma_omega)^2,sigma_omega);
+fnG   = 1 - normcdf((0.5*(sigma_omega)^2 -log(omega))/sigma_omega,0,1); %39
+fnGam = fnG+omega*(1-p);
+DGam  = (1-p);
+DG    = 1/(omega*sigma_omega*sqrt(2*(4*atan(1))))*exp(-(log(omega)
+        +.5*(sigma_omega)^2)^2/(2*(sigma_omega)^2));
 
 %:::ENTREPRENEURS:::
 
@@ -138,7 +126,7 @@ Q*(1-S-X*Sdash)+Lambda(+1)*Q(+1)*Sdash(+1)*X(+1)^2=1;
 
 
 %:::Real return of capital::: 11
-Rk = psi*(Z+(1-delta)*Q)/Q(-1);
+Rk = psi*(rK+(1-delta)*Q)/Q(-1);
 
 %:::Balance Sheet::: 12
 Q*K= Le + Ne;
@@ -152,12 +140,11 @@ Ce = (1-ksie)*(1-sigmae)*(1-fnGam)*Rk*Q(-1)*K(-1);
 %:::Leverage::: 15
 Ne*phie = Q*K;
 
-%:::Zero profit Condition::: 16
-K(-1)*( 1 - (Rk/R(-1))*(fnGam-mon*fnG)) - Ne(-1);
+%incentive compatibility constraint
+phie*Rk(+1)*(fnGam(+1)-mon*fnG(+1))=R(+1)*(phie-1); 
 
-%:::Idiosyncratic Shock::: 17
-
-omega = Rl*(Le(-1))/(Rk*Q(-1)*K(-1));
+%threshold omega value, omega= omega_bar
+omega = Z(-1)*(Q(-1)*K(-1) - Ne(-1))/(Rk*Q(-1)*K(-1));
 
 rho   = (DGam/((fnGam-mon*fnG)*DGam+(1-fnGam)*(DGam-mon*DG)));
 
@@ -186,7 +173,7 @@ log(Sg) = rhog*log(Sg(-1)) + e_G;
 log(sigma_omega / sigma_omega_ss) = rhosigma * log(sigma_omega(-1) / sigma_omega_ss)  + e_RS*0.07;
 
 % Capital Quality Shock
-log(psi) = rhog*log(psi(-1)) + e_KQ;
+log(psi) = rhog*log(psi(-1)) - e_KQ;
 
 bankrupt = p;
 
@@ -228,11 +215,9 @@ end;
 
 
 steady;
-resid(1); 
-check;
 
-options_.nograph        = 0;
-options_.irf_shocks = (e_A) ;
-stoch_simul(order=1,periods=10000,irf=40) 
-YY CC II LabLab RR QQ RkRk NeNe LeLe phiephie spreadspread bankrupt ;
+options_.nograph   = 1;
+
+stoch_simul(order=1,periods=10000,irf=40) ;
+%YY CC II LabLab RR QQ RkRk NeNe LeLe phiephie spreadspread bankrupt ;
 %NeNe sigma_omega spreadspread;
