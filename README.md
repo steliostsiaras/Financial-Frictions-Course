@@ -20,16 +20,16 @@ This is of hight importance as we will go through much more complicated models i
 
 ### Material
 
-- DSGE models introduction [slides](Introduction/Introduction.pdf)
-- RBC model set up and Dynare introduction [slides](Dynare/slides/Dynare.pdf)
-- [Codes](Dynare/codes) to solve the RBC model in Dynare 
+- DSGE models introduction [slides](Part1_Introduction/Introduction.pdf)
+- RBC model set up and Dynare introduction [slides](Part1_Dynare/slides/Dynare.pdf)
+- [Codes](Part1_Dynare/codes) to solve the RBC model in Dynare 
 
 #### Take home exercise  
 
-- Extend the simple RBC model to include investment adjustment costs as specified in the end of [slides](Dynare/slides/Dynare.pdf)
+- Extend the simple RBC model to include investment adjustment costs as specified in the end of [slides](Part1_Dynare/slides/Dynare.pdf)
 - First solve the model by pen and paper and add the new parts in Dynare to find the policy rules
 - Construct a vector [0:4] with step=1 grid for the adjustment cost parameter  <img src="https://render.githubusercontent.com/render/math?math=\phi_X">  and show the different IRFs for output, consumption, investment and labour hours for every level of the parameter
-- Solution will be uploaded in the Dynare [folder](Dynare)
+- Solution will be uploaded in the Dynare [folder](Part1_Dynare)
 
 ##### :computer: Prerequisites 
 - The model file runs with Matlab and Dynare 4.6.x
@@ -42,17 +42,17 @@ This started from [Townsded (1979)](https://www.sciencedirect.com/science/articl
 
 ### Material
 
-- BGG model presentation [slides](Assymetric_Information/slides/Asym_Information.pdf)
-- BGG equations [document](Assymetric_Information/slides/BGG_equations.pdf)
-- [Codes](Assymetric_Information/codes) to solve the BGG model in Dynare 
+- BGG model presentation [slides](Part2_Assymetric_Information/slides/Asym_Information.pdf)
+- BGG equations [document](Part2_Assymetric_Information/slides/BGG_equations.pdf)
+- [Codes](Part2_Assymetric_Information/codes) to solve the BGG model in Dynare 
 - Codes include both flexible price and sticky price specification of the real sector, together with the BGG friction
 
 #### Take home exercise  
 - Continue with part 2 of the previous week's exercise
-- Compare BGGflexi.mod and BBGsticky.mod, the model with flexible and sticky prices both are in [this folder](Assymetric_Information/codes)
+- Compare BGGflexi.mod and BBGsticky.mod, the model with flexible and sticky prices both are in [this folder](Part2_Assymetric_Information/codes)
 - Provide the impulse responses of both models in the same graph for output, consumption, investment, spread, loans and entrepreneurs' new worth
 - For the cases of a positive productivity and a risk shock
-- This [file](Assymetric_Information/codes/BGGplots_lecture.m) is the file I used for the lecture plots, it will help!
+- This [file](Part2_Assymetric_Information/codes/BGGplots_lecture.m) is the file I used for the lecture plots, it will help!
 ##  Final Evaluation
 
  Students are given with two options
