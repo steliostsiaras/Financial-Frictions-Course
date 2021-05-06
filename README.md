@@ -61,7 +61,7 @@ The seminal paper of  [Kiyotaki and Moore (1997)](https://www-users.york.ac.uk/~
 
 ### Material
 
-- GK model presentation [slides](Limited_Comm.pdf)
+- GK model presentation [slides](Part3_Limited_Commitment/slides/Limited_Comm.pdf)
 - [Codes](Part3_Limited_Commitment/codes) to solve the GK model in Dynare 
 
 #### Take home exercise  
