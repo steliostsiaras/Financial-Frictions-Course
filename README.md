@@ -35,7 +35,7 @@ This is of hight importance as we will go through much more complicated models i
 - The model file runs with Matlab and Dynare 4.6.x
 - The mod file the SS file need to be at the same folder
 
-## Day 2: Asymmetric information and limited commitment
+## Day 2: Asymmetric Information 
 
 In the second lecture we will cover one of the most widely used option for financial frictions in DSGE models, the assymetric information friction. 
 This started from [Townsded (1979)](https://www.sciencedirect.com/science/article/pii/0022053179900310) and became widely used in a DSGE model from [Bernanke, Gertler and Gilchrist (1999)](https://www.nber.org/system/files/working_papers/w6455/w6455.pdf). We will go through the latter in detail both in terms of theory and coding/ solving the model with Dynare
@@ -53,6 +53,20 @@ This started from [Townsded (1979)](https://www.sciencedirect.com/science/articl
 - Provide the impulse responses of both models in the same graph for output, consumption, investment, spread, loans and entrepreneurs' new worth
 - For the cases of a positive productivity and a risk shock
 - This [file](Part2_Assymetric_Information/codes/BGGplots_lecture.m) is the file I used for the lecture plots, it will help!
+
+## Day 3: Limited commitment
+
+In the thirds lecture we will cover the second most used method of introduting financial frictions in DSGE models, the limited commitment friction. 
+The seminal paper of  [Kiyotaki and Moore (1997)](https://www-users.york.ac.uk/~psm509/ULB2012/KiyotakiMooreJPE1997.pdf) (it is even in the [Wikipedia] (https://en.wikipedia.org/wiki/Kiyotaki–Moore_model)) started the tradition of borrowing constraints due to limited commitment of households to repay their denbts. After the financial crisis of 2008, this stream has regained popularity by a series of seminal papers. In this lecture we will go through the [Gertler and Kiyotaki (2009)](https://www.frbsf.org/economic-research/files/gertler_kiyotaki.pdf) paper which introduced this friction in the banking sector. 
+
+### Material
+
+- GK model presentation [slides](Part3_Limited_Commitment/slides/Asym_Information.pdf)
+- [Codes](Part3_Limited_Commitment/codes) to solve the BGG model in Dynare 
+
+#### Take home exercise  
+- In the codes provided, no calibration has taken place, I have just perform a parametrization of the model 
+- You have to treat the parameter (theta), <img src="https://render.githubusercontent.com/render/math?math=\theta">, as a free parameter and calibrate it such that the leverage (phi), <img src="https://render.githubusercontent.com/render/math?math=\phi">, in steady state is 4.5
 ##  Final Evaluation
 
  Students are given with two options
