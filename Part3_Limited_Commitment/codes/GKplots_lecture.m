@@ -87,7 +87,7 @@ axis(sh,'off');
 
 
 %% Capital Quality Shock
-dynare GK_calib
+dynare GK
 
 
 gg = 1:40;
