@@ -61,8 +61,8 @@ The seminal paper of  [Kiyotaki and Moore (1997)](https://www-users.york.ac.uk/~
 
 ### Material
 
-- GK model presentation [slides](Part3_Limited_Commitment/slides/Asym_Information.pdf)
-- [Codes](Part3_Limited_Commitment/codes) to solve the BGG model in Dynare 
+- GK model presentation [slides](Limited_Comm.pdf)
+- [Codes](Part3_Limited_Commitment/codes) to solve the GK model in Dynare 
 
 #### Take home exercise  
 - In the codes provided, no calibration has taken place, I have just perform a parametrization of the model 
