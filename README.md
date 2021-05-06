@@ -67,6 +67,8 @@ The seminal paper of  [Kiyotaki and Moore (1997)](https://www-users.york.ac.uk/~
 #### Take home exercise  
 - In the codes provided, no calibration has taken place, I have just perform a parametrization of the model 
 - You have to treat the parameter (theta), <img src="https://render.githubusercontent.com/render/math?math=\theta">, as a free parameter and calibrate it such that the leverage (phi), <img src="https://render.githubusercontent.com/render/math?math=\phi">, in steady state is 4.5
+- Show that's the differences in IRFs after a capital quality shock with the non-calibrated version
+
 ##  Final Evaluation
 
  Students are given with two options
