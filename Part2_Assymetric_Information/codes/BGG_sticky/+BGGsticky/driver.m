@@ -4,12 +4,6 @@
 % Warning : this file is generated automatically by Dynare
 %           from model file (.mod)
 
-if isoctave || matlab_ver_less_than('8.6')
-    clear all
-else
-    clearvars -global
-    clear_persistent_variables(fileparts(which('dynare')), false)
-end
 tic0 = tic;
 % Define global variables.
 global M_ options_ oo_ estim_params_ bayestopt_ dataset_ dataset_info estimation_info ys0_ ex0_
@@ -1200,9 +1194,9 @@ rhosigma = M_.params(19);
 rhog     = 0.97;
 M_.params(20) = 0;
 signal_corr_p = M_.params(20);
-M_.params(21) = 0.0282985;
+M_.params(21) = 1;
 stdsigma2_p = M_.params(21);
-M_.params(22) = 0.0282985;
+M_.params(22) = 1;
 stdsigma1_p = M_.params(22);
 M_.params(23) = 1;
 stdA = M_.params(23);
@@ -1227,11 +1221,11 @@ M_.Sigma_e(12, 12) = (1)^2;
 steady;
 resid(1); 
 oo_.dr.eigval = check(M_,options_,oo_);
-options_.nograph        = 0;
+options_.nograph        = 1;
 options_.irf = 40;
 options_.order = 1;
 options_.periods = 10000;
-var_list_ = {'YY';'CC';'NeNe';'sigma_omega';'spreadspread';'KK'};
+var_list_ = {};
 [info, oo_, options_, M_] = stoch_simul(M_, options_, oo_, var_list_);
 save('BGGsticky_results.mat', 'oo_', 'M_', 'options_');
 if exist('estim_params_', 'var') == 1

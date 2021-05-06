@@ -118,8 +118,8 @@ rho_r    = 0.7;
 rhosigma = 0.97;
 rhog     = 0.97;
 signal_corr_p = 0; //zero corellaion btw shocks to get the straight lines in CMR Fig 2
-stdsigma2_p = 0.0282985;
-stdsigma1_p = 0.0282985;%0.0700061;
+stdsigma2_p = 1;
+stdsigma1_p = 1;%0.0700061;
 stdA        = 1;  %0.07;
 stdG        = 1;  %0.028;
 
@@ -523,7 +523,7 @@ steady;
 resid(1); 
 check;
 
-options_.nograph        = 0;
+options_.nograph        = 1;
 
-stoch_simul(order=1,periods=10000,irf=40) YY CC NeNe sigma_omega spreadspread KK;
+stoch_simul(order=1,periods=10000,irf=40) ;%YY CC NeNe sigma_omega spreadspread KK;
 %II LabLab RR QQ RnRn PIPPIP OUTGAPOUTGAP RkRk NeNe LeLe phiephie spreadspread bankrupt
