@@ -247,12 +247,13 @@ title('D. Capital','FontSize',20)
 
 clear;
 
+% Here change your path to where you have stored BGGsticky
 cd '/Users/alabama/Documents/GitHub/Financial_Firctions_Course_EUI/Financial-Frictions-Course/Part2_Assymetric_Information/codes/BGG_sticky/'
 
 dynare BGGsticky noclearall 
 result(1) = oo_.irfs;
 
-
+% Here change your path to where you have stored BGGflexi
 cd '/Users/alabama/Documents/GitHub/Financial_Firctions_Course_EUI/Financial-Frictions-Course/Part2_Assymetric_Information/codes/BGG_flexi/'
 dynare BGGflexi noclearall 
 result(2) = oo_.irfs;
