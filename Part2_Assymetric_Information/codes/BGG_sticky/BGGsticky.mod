@@ -119,7 +119,7 @@ rhosigma = 0.97;
 rhog     = 0.97;
 signal_corr_p = 0; //zero corellaion btw shocks to get the straight lines in CMR Fig 2
 stdsigma2_p = 1;
-stdsigma1_p = 1;%0.0700061;
+stdsigma1_p = 1;  %0.0700061;
 stdA        = 1;  %0.07;
 stdG        = 1;  %0.028;
 
