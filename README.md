@@ -47,7 +47,7 @@ This started from [Townsded (1979)](https://www.sciencedirect.com/science/articl
 - [Codes](Part2_Assymetric_Information/codes) to solve the BGG model in Dynare 
 - Codes include both flexible price and sticky price specification of the real sector, together with the BGG friction
 
-#### Take home exercise  
+### Take home exercise  
 - Continue with part 2 of the previous week's exercise
 - Compare BGGflexi.mod and BBGsticky.mod, the model with flexible and sticky prices both are in [this folder](Part2_Assymetric_Information/codes)
 - Provide the impulse responses of both models in the same graph for output, consumption, investment, spread, loans and entrepreneurs' new worth
@@ -56,7 +56,7 @@ This started from [Townsded (1979)](https://www.sciencedirect.com/science/articl
 
 ## Day 3: Limited commitment
 
-In the thirds lecture we will cover the second most used method of introduting financial frictions in DSGE models, the limited commitment friction. 
+In the third lecture we will cover the second most used method of introduting financial frictions in DSGE models, the limited commitment friction. 
 The seminal paper of  [Kiyotaki and Moore (1997)](https://www-users.york.ac.uk/~psm509/ULB2012/KiyotakiMooreJPE1997.pdf) (it is even in the [Wikipedia](https://en.wikipedia.org/wiki/Kiyotaki–Moore_model)) started the tradition of borrowing constraints due to limited commitment of households to repay their denbts. After the financial crisis of 2008, this stream has regained popularity by a series of seminal papers. In this lecture we will go through the [Gertler and Kiyotaki (2009)](https://www.frbsf.org/economic-research/files/gertler_kiyotaki.pdf) paper which introduced this friction in the banking sector. 
 
 ### Material
@@ -64,10 +64,44 @@ The seminal paper of  [Kiyotaki and Moore (1997)](https://www-users.york.ac.uk/~
 - GK model presentation [slides](Part3_Limited_Commitment/slides/Limited_Comm.pdf)
 - [Codes](Part3_Limited_Commitment/codes) to solve the GK model in Dynare 
 
-#### Take home exercise  
+### Take home exercise  
 - In the codes provided, no calibration has taken place, I have just perform a parametrization of the model 
 - You have to treat the parameter (theta), <img src="https://render.githubusercontent.com/render/math?math=\theta">, as a free parameter and calibrate it such that the leverage (phi), <img src="https://render.githubusercontent.com/render/math?math=\phi">, in steady state is 4.5
 - Show that's the differences in IRFs after a capital quality shock with the non-calibrated version
+
+## Day 4: Monetary and Macroprudential Policy 
+
+In this lecture we through some extensions of the models we have seen in the previous lecutres in the direction of monetary and macroprudential policy.
+Specifically:
+- We extend the [Gertler and Kiyotaki (2009)](https://www.frbsf.org/economic-research/files/gertler_kiyotaki.pdf) model adding liquidity injections from the government to the banking sector
+- We see an extension of the original GK model to the introduction of quantitative easing. Banks hold bonds and the government can purchase a fraction of these to stimulate the economy. This follows the the [Gertler and Karadi (2013)](https://www.ijcb.org/journal/ijcb13q0a1.pdf)
+- We study a new class of models initiated by [Iacoviello (2005)](https://www.matteoiacoviello.com/research_files/AER_2005.pdf). In these models a loan to value constraint is introduced as a form of macroprudential policy
+- Lastly, we see how easily the GK model can be changed to include a countercyclical buffer constraint similar to the Basel III framework
+
+### Material
+
+- [slides](Part4_Monetary_Macropru_Policy/slides/Monetary_MacroPru.pdf)
+
+### Take home exercise  
+
+There will be two parts of homework this week, and you can submit it in two weeks time. 
+#### Part 1
+
+- Consider the model of GK with the liquidity injections
+- Use the code of the steady state for the original GK and extend this to include the liquidity injections
+- Solve for the SS by pen and paper
+- End up to the 2 equations for 2 unknowns as we did in the previous lecture
+- Create a new Matlab file just for the SS. Copy paste the old GK SS file, delete the preamble and the ending that connects it with Dynare 
+- Make the adjustments in the appropireate section
+- Set chi_m=0.001 and omega=0.5
+- Extend the myfun_GK1.m with the new components 
+- Find the values of leverage, return on capital and liquidity interest rate in steady state and report those values
+
+#### Part 2
+- Consider the original model of GK 
+- Turn the $\theta$ parameter into a time varying parameter (actually a variable in Dynare wording) that follows the countercyclical buffer equation as shown in the lecture notes
+- Plot the impulse responses for Y,C, I, N, leverage and spread after a capital quality shock of (std=1) for the cases of psi_k=0 and psi_k =0.15 where psi_k is the weight in the countercyclical buffer (see notes)
+- Essentially you turn psi_k=0 to psi_k=0.15
 
 ##  Final Evaluation
 
