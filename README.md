@@ -85,7 +85,7 @@ Specifically:
 ### Take home exercise  
 
 There will be two parts of homework this week, and you can submit it in two weeks time. 
-#### Part 1
+#### Part 1: Introducing liquidity injections in the GK model steady state
 
 - Consider the model of GK with the liquidity injections
 - Use the code of the steady state for the original GK and extend this to include the liquidity injections
@@ -97,7 +97,7 @@ There will be two parts of homework this week, and you can submit it in two week
 - Extend the myfun_GK1.m with the new components 
 - Find the values of leverage, return on capital and liquidity interest rate in steady state and report those values
 
-#### Part 2
+#### Part 2: Introducing countercyclical capital requirements (CCyB)
 - Consider the original model of GK 
 - Turn the $\theta$ parameter into a time varying parameter (actually a variable in Dynare wording) that follows the countercyclical buffer equation as shown in the lecture notes
 - Plot the impulse responses for Y,C, I, N, leverage and spread after a capital quality shock of (std=1) for the cases of psi_k=0 and psi_k =0.15 where psi_k is the weight in the countercyclical buffer (see notes)
