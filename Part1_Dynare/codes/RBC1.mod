@@ -1,4 +1,8 @@
 
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Part of the Financial Frictions Course by Stelios Tsiaras %%
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 @#define SS_block=0
 % 0 for SS matlab file
 % 1 for analytical SS block in the model

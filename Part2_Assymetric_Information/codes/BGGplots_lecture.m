@@ -1,3 +1,6 @@
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Part of the Financial Frictions Course by Stelios Tsiaras %%
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Responses to productivity shock 
 %% Plots for lecture
 %% ....................................

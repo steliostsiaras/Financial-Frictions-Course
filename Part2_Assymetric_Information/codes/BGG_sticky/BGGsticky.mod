@@ -1,3 +1,6 @@
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Part of the Financial Frictions Course by Stelios Tsiaras %%
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 external_function(name=logncdf, nargs=3);
 
 % 1. BGG + sticky prices + Risk Shocks signals CMR2014_AER

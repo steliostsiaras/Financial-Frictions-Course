@@ -1,3 +1,7 @@
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Part of the Financial Frictions Course by Stelios Tsiaras %%
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   %%
 var Y K Lab I C R Rk W rK N Uc Q Le D phi  S Lambda Omega T G spread GDP Nw2Ass
 X Sinv Sdash spreadA
 

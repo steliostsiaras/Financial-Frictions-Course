@@ -1,3 +1,6 @@
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Part of the Financial Frictions Course by Stelios Tsiaras %%
+   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 //                           BGG with Flexible Prices. 
 
 % Runs with Dynare 4.6.x
