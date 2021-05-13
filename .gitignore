@@ -10,6 +10,7 @@ Part4_Monetary_Macropru_Policy/exercise/
 *.DS_Store
 *.aux
 *.tex
+*.png
 *.lof
 *.log
 *.lot
