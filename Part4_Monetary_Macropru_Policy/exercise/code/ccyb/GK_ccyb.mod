@@ -1,8 +1,8 @@
 var Y K Lab I C R Rk W rK N Uc Q Le D phi  S Lambda Omega T G spread GDP Nw2Ass
-X Sinv Sdash spreadA
+X Sinv Sdash spreadA theta
 
 %Shocks
-A g  psi
+A g psi
 
 %Percentage differences%
 YY KK CC LabLab II 
@@ -11,8 +11,8 @@ RR RkRk  WW rKrK NN  UcUc QQ DD phiphi TT GG GDP1 spreadspread Loansloans
 
 varexo  e_A  e_g e_psi;
 
-parameters  alphha betta gammma chil epsl delta theta sigmab 
-ksi phiX G_over_Y  
+parameters  alphha betta gammma chil epsl delta theta_star sigmab 
+ksi phiX G_over_Y  psi_k
 
 %AR(1) coefficients 
 rhoA rhopsi rhog;
@@ -36,6 +36,10 @@ gammma   = 0.50;    %% Habbit parameter
 %--------------------------------------------------------------------------
 %Banks
 %--------------------------------------------------------------------------
+psi_k=0.5;
+
+load psi_k_value;
+set_param_value('psi_k'    ,psi_k); 
 
 phiX     = 1.5;       %% Investment adjustment costs parameter
 
@@ -43,7 +47,7 @@ phiX     = 1.5;       %% Investment adjustment costs parameter
 G_over_Y = 0.2;  %% GOvernment spending over GDP
 
  
-theta    = 0.383;  %% Absconding rate of the bankers
+theta_star = 0.383;  %% Absconding rate of the bankers
 ksi      = 0.003;    %% Start up fund for the new bankers
 sigmab   = 0.972; %% Remain probality of the bankers
 
@@ -118,16 +122,11 @@ Q*S = N*phi;
 %%%Banks Balance Sheet%%%
 Q*S = D + N ;  
 
-%%%Marginal loss of deposits%%%
-%vd = (Lambda(+1))*(Omega)*R(+1); 
-
-%%%Stochastic spread%%%
-%mu = (Lambda(+1))*(Omega)*(spread(+1));
+% Countercyclial requirements according to the credit gap
+theta = theta_star + psi_k*((Q*S)/(Y+Y(-1)+Y(-2)+Y(-3)) - steady_state(Q)*steady_state(S)/(4*steady_state(Y)));
 
 %%%Leverage%%%
 phi=Lambda(+1)*Omega(+1)*(R(+1))/(theta-(Lambda(+1)*Omega(+1)*spread(+1)));
-
-%phi = (vt)/(theta-mu);
 
 %%%Net Worth%%%
 N = Rk*Q(-1)*(S(-1))*(sigmab+ksi) - sigmab*R*D(-1);       

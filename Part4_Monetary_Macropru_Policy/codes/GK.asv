@@ -233,8 +233,7 @@ steady;
 options_.nograph=1;
 
 stoch_simul(order=1,periods=10000,irf=40)
-YY KK CC LabLab II 
-RR RkRk  WW rKrK NN  UcUc QQ DD phiphi TT GG GDP1 spreadspread Loansloans
+%YY, II, CC, KK, NN, spreadspread  
 ;
 
 

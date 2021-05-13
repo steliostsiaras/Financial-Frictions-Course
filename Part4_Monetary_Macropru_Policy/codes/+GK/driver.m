@@ -488,7 +488,7 @@ options_.nograph=1;
 options_.irf = 40;
 options_.order = 1;
 options_.periods = 10000;
-var_list_ = {'YY';'KK';'CC';'LabLab';'II';'RR';'RkRk';'WW';'rKrK';'NN';'UcUc';'QQ';'DD';'phiphi';'TT';'GG';'GDP1';'spreadspread';'Loansloans'};
+var_list_ = {};
 [info, oo_, options_, M_] = stoch_simul(M_, options_, oo_, var_list_);
 save('GK_results.mat', 'oo_', 'M_', 'options_');
 if exist('estim_params_', 'var') == 1
