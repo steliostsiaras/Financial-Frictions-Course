@@ -90,14 +90,12 @@ There will be two parts of homework this week, and you can submit it in two week
 - Consider the model of GK with the liquidity injections
 - Use the code of the steady state for the original GK and extend this to include the liquidity injections
 - Solve for the SS by pen and paper
-- Express $M$ and $R^M$ as function of variables you know
-- $M^{ss} = \chi_{m}  S^{ss}$ and $R^M = f(R^K)$  
-- End up to the 2 equations for 2 unknowns ($\phi,R^K$) as we did in the previous lecture
+- End up to the 2 equations for 2 unknowns as we did in the previous lecture
 - Create a new Matlab file just for the SS. Copy paste the old GK SS file, delete the preamble and the ending that connects it with Dynare 
--Make the adjustments in the \%\% \textbf{Banker Solution (GK)} section
-- Set $\chi_{m}=0.001$ and $\omega=0.5$
-- Extend the \texttt{myfun\_GK1} with the new components 
-- Find $\phi, R^K, R^M$ in steady state and report those values
+- Make the adjustments in the appropireate section
+- Set chi_m=0.001 and omega=0.5
+- Extend the myfun_GK1.m with the new components 
+- Find the values of leverage, return on capital and liquidity interest rate in steady state and report those values
 
 #### Part 2
 - Consider the original model of GK 
