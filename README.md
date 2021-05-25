@@ -129,7 +129,7 @@ Specifically:
  - The proposal could be an extension of one of the papers seen in the course, a new application of the models presented, or a new model/empirical analysis. 
  - The key is to stress the motivation of the proposed research, what is new, why it is interesting and/or important.
 
-#### Acknowledgments
+### Acknowledgments
 This course has benefited from notes of
 - The University of Surrey DSGE summer school [course on financial fricrtions](https://www.surrey.ac.uk/cpd-and-short-courses/science-and-art-dynamic-stochastic-general-equilibrium-dsge-modelling-advanced)
 - Thomas Drechsel course on [The Macroeconomics of Imperfect Capital Markets](http://econweb.umd.edu/~drechsel/teaching/index.htm)
