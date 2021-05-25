@@ -71,7 +71,7 @@ The seminal paper of  [Kiyotaki and Moore (1997)](https://www-users.york.ac.uk/~
 
 ## Day 4: Monetary and Macroprudential Policy 
 
-In this lecture we through some extensions of the models we have seen in the previous lecutres in the direction of monetary and macroprudential policy.
+In this lecture we will go through some extensions of the models we have seen in the previous lecutres in the direction of monetary and macroprudential policy.
 Specifically:
 - We extend the [Gertler and Kiyotaki (2009)](https://www.frbsf.org/economic-research/files/gertler_kiyotaki.pdf) model adding liquidity injections from the government to the banking sector
 - We see an extension of the original GK model to the introduction of quantitative easing. Banks hold bonds and the government can purchase a fraction of these to stimulate the economy. This follows the the [Gertler and Karadi (2013)](https://www.ijcb.org/journal/ijcb13q0a1.pdf)
@@ -87,21 +87,27 @@ Specifically:
 There will be two parts of homework this week, and you can submit it in two weeks time. 
 #### Part 1: Introducing liquidity injections in the GK model steady state
 
-- Consider the model of GK with the liquidity injections
+- Consider the model of GK with the liquidity injections and find the steady state of the model
 - Use the code of the steady state for the original GK and extend this to include the liquidity injections
 - Solve for the SS by pen and paper
-- End up to the 2 equations for 2 unknowns as we did in the previous lecture
-- Create a new Matlab file just for the SS. Copy paste the old GK SS file, delete the preamble and the ending that connects it with Dynare 
-- Make the adjustments in the appropireate section
-- Set chi_m=0.001 and omega=0.5
-- Extend the myfun_GK1.m with the new components 
+- Create a new Matlab file just for the SS and make the adjustments in the appropireate section with chi_m=0.001 and omega=0.5
 - Find the values of leverage, return on capital and liquidity interest rate in steady state and report those values
 
 #### Part 2: Introducing countercyclical capital requirements (CCyB)
-- Consider the original model of GK 
-- Turn the $\theta$ parameter into a time varying parameter (actually a variable in Dynare wording) that follows the countercyclical buffer equation as shown in the lecture notes
+- Consider the original model of GK and turn the $\theta$ parameter into a time varying parameter that follows the CCyB equation as shown in the lecture notes
 - Plot the impulse responses for Y,C, I, N, leverage and spread after a capital quality shock of (std=1) for the cases of psi_k=0 and psi_k =0.15 where psi_k is the weight in the countercyclical buffer (see notes)
-- Essentially you turn psi_k=0 to psi_k=0.15
+
+## Day 5: Simple Heterogeneity in DSGE Models
+
+In this lecture we will go through introducing simple heterogeneity in DSGE models; we will focus on the two agents specification of the models ot TANK (two agents New-Keynesian Models). After a brief overview of the state of the literature and the alternatives to the full HANK models we will study three seminal papers in the literature.
+Specifically:
+- The seminal paper by [Gali, López-Salido and Vallés (2007)](https://onlinelibrary.wiley.com/doi/10.1162/JEEA.2007.5.1.227) where they introduce a two agent model in a quantitative framework
+- [Bilbiie (2008)](https://ideas.repec.org/a/eee/jetheo/v140y2008i1p162-196.html) that uses a similar model to the GLV to provide analytical insights
+- [Bilbiie (2020)](https://www.sciencedirect.com/science/article/pii/S0304393219300492) where it extends the two agent framework and incorporates a -tractable- HANK specification
+ 
+### Material
+
+- [slides](Part5_Simple_Heterogeneity/slides/Simple_Heterogeneity.pdf)
 
 ##  Final Evaluation
 
