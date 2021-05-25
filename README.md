@@ -89,13 +89,12 @@ There will be two parts of homework this week, and you can submit it in two week
 
 - Consider the model of GK with the liquidity injections and find the steady state of the model
 - Use the code of the steady state for the original GK and extend this to include the liquidity injections
-- Solve for the SS by pen and paper
-- Create a new Matlab file just for the SS and make the adjustments in the appropireate section with chi_m=0.001 and omega=0.5
+- Create a .m file and make the adjustments in the appropireate section with chi_m=0.001 and omega=0.5
 - Find the values of leverage, return on capital and liquidity interest rate in steady state and report those values
 
 #### Part 2: Introducing countercyclical capital requirements (CCyB)
 - Consider the original model of GK and turn the $\theta$ parameter into a time varying parameter that follows the CCyB equation as shown in the lecture notes
-- Plot the impulse responses for Y,C, I, N, leverage and spread after a capital quality shock of (std=1) for the cases of psi_k=0 and psi_k =0.15 where psi_k is the weight in the countercyclical buffer (see notes)
+- Plot the impulse responses for Y, C, I, N, leverage and spread after a capital quality shock of (std=1) for the cases of psi_k=0 and psi_k =0.15 where psi_k is the weight in the countercyclical buffer (see notes)
 
 ## Day 5: Simple Heterogeneity in DSGE Models
 
