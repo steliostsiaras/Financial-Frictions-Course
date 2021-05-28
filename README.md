@@ -137,6 +137,8 @@ This course has benefited from notes of
 - Thomas Drechsel course on [The Macroeconomics of Imperfect Capital Markets](http://econweb.umd.edu/~drechsel/teaching/index.htm)
 - Florin Bilbiie's [slides](https://sites.google.com/site/florinbilbiie/teaching) on heterogeneous agents models
 
+### License
+
 This work is licensed under a
 [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
 
