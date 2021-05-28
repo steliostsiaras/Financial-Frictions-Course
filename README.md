@@ -1,5 +1,4 @@
 [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
-
 # Course: Financial Frictions, Monetary and Macroprudential Policy and Household Heterogeneity
 
 This course is written for the EUI Econ PhD students as an advanced half-credit course. 
