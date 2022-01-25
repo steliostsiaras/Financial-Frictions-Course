@@ -17,7 +17,7 @@ assert(length(T) >= 20);
 
 T = BGGflexi.static_resid_tt(T, y, x, params);
 
-T(12) = (1-params(3))*getPowerDeriv(y(1)*(1-params(3)),(-1),1);
+T(12) = (1-params(3))*getPowerDeriv(y(1)-y(1)*params(3),(-1),1);
 T(13) = getPowerDeriv(y(22)*y(7),params(1),1);
 TEFD_fdd_0_1 = jacob_element('logncdf',1,{y(19),(-0.5)*T(7),y(27)});
 T(14) = TEFD_fdd_0_1;

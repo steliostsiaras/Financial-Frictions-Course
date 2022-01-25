@@ -4,6 +4,12 @@
 % Warning : this file is generated automatically by Dynare
 %           from model file (.mod)
 
+if isoctave || matlab_ver_less_than('8.6')
+    clear all
+else
+    clearvars -global
+    clear_persistent_variables(fileparts(which('dynare')), false)
+end
 tic0 = tic;
 % Define global variables.
 global M_ options_ oo_ estim_params_ bayestopt_ dataset_ dataset_info estimation_info ys0_ ex0_
@@ -269,68 +275,68 @@ M_.orig_maximum_lag = 1;
 M_.orig_maximum_lead = 1;
 M_.orig_maximum_lag_with_diffs_expanded = 1;
 M_.lead_lag_incidence = [
- 0 11 0;
- 1 12 0;
- 0 13 64;
- 0 14 0;
- 0 15 65;
- 0 16 0;
- 2 17 0;
- 0 18 0;
- 3 19 0;
- 0 20 0;
- 0 21 66;
- 4 0 0;
- 5 22 0;
- 0 23 0;
+ 1 12 65;
+ 2 13 0;
+ 0 14 66;
+ 0 15 0;
+ 0 16 67;
+ 0 17 0;
+ 3 18 0;
+ 0 19 0;
+ 4 20 0;
+ 0 21 0;
+ 0 22 68;
+ 5 0 0;
+ 6 23 0;
  0 24 0;
  0 25 0;
  0 26 0;
- 0 27 67;
- 0 28 0;
- 6 29 0;
- 7 30 68;
- 8 31 0;
- 0 32 0;
+ 0 27 0;
+ 0 28 69;
+ 0 29 0;
+ 7 30 0;
+ 8 31 70;
+ 9 32 0;
  0 33 0;
  0 34 0;
  0 35 0;
- 9 36 0;
- 0 37 0;
+ 0 36 0;
+ 10 37 0;
  0 38 0;
  0 39 0;
- 10 40 0;
- 0 41 69;
- 0 42 0;
- 0 43 70;
- 0 44 0;
- 0 45 71;
- 0 46 72;
- 0 47 0;
+ 0 40 0;
+ 11 41 0;
+ 0 42 71;
+ 0 43 0;
+ 0 44 72;
+ 0 45 0;
+ 0 46 73;
+ 0 47 74;
  0 48 0;
  0 49 0;
  0 50 0;
  0 51 0;
  0 52 0;
- 0 53 73;
- 0 54 0;
- 0 55 74;
- 0 56 0;
+ 0 53 0;
+ 0 54 75;
+ 0 55 0;
+ 0 56 76;
  0 57 0;
  0 58 0;
  0 59 0;
  0 60 0;
  0 61 0;
  0 62 0;
- 0 63 0;]';
-M_.nstatic = 34;
+ 0 63 0;
+ 0 64 0;]';
+M_.nstatic = 33;
 M_.nfwrd   = 10;
 M_.npred   = 9;
-M_.nboth   = 1;
-M_.nsfwrd   = 11;
-M_.nspred   = 10;
-M_.ndynamic   = 20;
-M_.dynamic_tmp_nbr = [11; 7; 0; 0; ];
+M_.nboth   = 2;
+M_.nsfwrd   = 12;
+M_.nspred   = 11;
+M_.ndynamic   = 21;
+M_.dynamic_tmp_nbr = [10; 8; 0; 0; ];
 M_.model_local_variables_dynamic_tt_idxs = {
 };
 M_.equations_tags = {
@@ -449,7 +455,7 @@ M_.mapping.e_KQ.eqidx = [35 ];
 M_.mapping.e_RS.eqidx = [34 ];
 M_.static_and_dynamic_models_differ = false;
 M_.has_external_function = true;
-M_.state_var = [2 7 9 12 13 20 21 22 27 31 ];
+M_.state_var = [1 2 7 9 12 13 20 21 22 27 31 ];
 M_.exo_names_orig_ord = [1:4];
 M_.maximum_lag = 1;
 M_.maximum_lead = 1;
@@ -461,7 +467,7 @@ M_.maximum_exo_lead = 0;
 oo_.exo_steady_state = zeros(4, 1);
 M_.params = NaN(11, 1);
 M_.endo_trends = struct('deflator', cell(54, 1), 'log_deflator', cell(54, 1), 'growth_factor', cell(54, 1), 'log_growth_factor', cell(54, 1));
-M_.NNZDerivatives = [169; -1; -1; ];
+M_.NNZDerivatives = [171; -1; -1; ];
 M_.static_tmp_nbr = [11; 9; 0; 0; ];
 M_.model_local_variables_static_tt_idxs = {
 };
@@ -496,11 +502,11 @@ M_.Sigma_e(2, 2) = (1)^2;
 M_.Sigma_e(3, 3) = (1)^2;
 M_.Sigma_e(4, 4) = (1)^2;
 steady;
-options_.nograph   = 1;
+options_.nograph   = 0;
 options_.irf = 40;
 options_.order = 1;
 options_.periods = 10000;
-var_list_ = {};
+var_list_ = {'YY';'CC';'II';'LabLab';'RR';'QQ';'RkRk';'NeNe';'LeLe';'phiephie';'spreadspread';'bankrupt'};
 [info, oo_, options_, M_] = stoch_simul(M_, options_, oo_, var_list_);
 save('BGGflexi_results.mat', 'oo_', 'M_', 'options_');
 if exist('estim_params_', 'var') == 1

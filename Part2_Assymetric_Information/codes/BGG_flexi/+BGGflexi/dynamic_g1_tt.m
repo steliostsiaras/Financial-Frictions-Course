@@ -22,15 +22,16 @@ assert(length(T) >= 18);
 
 T = BGGflexi.dynamic_resid_tt(T, y, x, params, steady_state, it_);
 
-T(12) = (1-params(3))*getPowerDeriv(y(11)*(1-params(3)),(-1),1);
-T(13) = getPowerDeriv(y(31)*y(2),params(1),1);
-TEFD_fdd_0_1 = jacob_element('logncdf',1,{y(28),(-0.5)*T(7),y(36)});
+T(11) = getPowerDeriv(y(12)-params(3)*y(1),(-1),1);
+T(12) = getPowerDeriv(y(65)-y(12)*params(3),(-1),1);
+T(13) = getPowerDeriv(y(32)*y(3),params(1),1);
+TEFD_fdd_0_1 = jacob_element('logncdf',1,{y(29),(-0.5)*T(6),y(37)});
 T(14) = TEFD_fdd_0_1;
-TEFD_fdd_0_2 = jacob_element('logncdf',2,{y(28),(-0.5)*T(7),y(36)});
+TEFD_fdd_0_2 = jacob_element('logncdf',2,{y(29),(-0.5)*T(6),y(37)});
 T(15) = TEFD_fdd_0_2;
-TEFD_fdd_0_3 = jacob_element('logncdf',3,{y(28),(-0.5)*T(7),y(36)});
+TEFD_fdd_0_3 = jacob_element('logncdf',3,{y(29),(-0.5)*T(6),y(37)});
 T(16) = TEFD_fdd_0_3;
-T(17) = exp((-(T(9)*T(9)))/2)/2.506628274631;
-T(18) = (y(47)*(y(46)-y(45)*y(38))+(1-y(46))*(y(47)-y(48)*y(38)))*(y(47)*(y(46)-y(45)*y(38))+(1-y(46))*(y(47)-y(48)*y(38)));
+T(17) = exp((-(T(8)*T(8)))/2)/2.506628274631;
+T(18) = (y(48)*(y(47)-y(46)*y(39))+(1-y(47))*(y(48)-y(49)*y(39)))*(y(48)*(y(47)-y(46)*y(39))+(1-y(47))*(y(48)-y(49)*y(39)));
 
 end

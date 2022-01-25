@@ -68,7 +68,7 @@ model;
 
 
 %:::Marginal Utility::: 1
-Uc = (C*(1-gammma))^(-1) -betta*gammma*(C*(1-gammma))^(-1);
+Uc =  (C-gammma*C(-1))^(-1) -betta*gammma*(C(+1)-gammma*C)^(-1);
 
 %:::Stochastic discount factor::: 2
 Lambda = betta*(Uc)/(Uc(-1));
@@ -219,8 +219,8 @@ end;
 
 steady;
 
-options_.nograph   = 1;
+options_.nograph   = 0;
 
-stoch_simul(order=1,periods=10000,irf=40) ;
-%YY CC II LabLab RR QQ RkRk NeNe LeLe phiephie spreadspread bankrupt ;
+stoch_simul(order=1,periods=10000,irf=40) 
+YY CC II LabLab RR QQ RkRk NeNe LeLe phiephie spreadspread bankrupt ;
 %NeNe sigma_omega spreadspread;
