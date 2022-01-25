@@ -23,7 +23,7 @@
 *.cb2
 .*.lb
 *.bst
-
+*.icloud
 ## Intermediate documents:
 *.dvi
 *.xdv
